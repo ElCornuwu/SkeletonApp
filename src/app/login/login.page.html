@@ -17,9 +17,13 @@
     </ion-card-header>
   
     <ion-card-content class="ion-text-center">
-      <ion-input label="Usuario" [(ngModel)]="login.usuario"></ion-input>
-      <ion-input label="Contraseña" type="password" [(ngModel)]="login.password"></ion-input>
-      <ion-button (click)="ingresar()">Ingresar</ion-button>
+
+      <ion-input label="Usuario" maxlength="8" [(ngModel)]="login.usuario"></ion-input>
+
+      <ion-input label="Contraseña" type="password" maxlength="4" [(ngModel)]="login.password" (ionInput)="valNumPass($event)"></ion-input>
+      
+      <ion-button (click)="ingresar()" id="ingresar">Ingresar</ion-button>
+      
       <p style="text-decoration: underline; color: blue;">Crea tu cuenta gratis</p>
     </ion-card-content>
   </ion-card>
