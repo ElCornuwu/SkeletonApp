@@ -18,14 +18,11 @@
   
     <ion-card-content class="ion-text-center">
 
+
       <ion-input label="Usuario" maxlength="8" [(ngModel)]="login.usuario"></ion-input>
 
-      <ion-input label="Contraseña" type="password" maxlength="4" [(ngModel)]="login.password" (ionInput)="valNumPass($event)"></ion-input>
       
-      <ion-button (click)="ingresar()" id="ingresar">Ingresar</ion-button>
-      <div>
-        <a href="/recuperar">Recuperar contraseña</a>
-      </div>
+      <ion-button id="ingresar" (click)="validar(this.login)">Recuperar</ion-button>
       
     </ion-card-content>
   </ion-card>

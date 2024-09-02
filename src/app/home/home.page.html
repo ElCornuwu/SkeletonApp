@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Bienvenido 
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,19 +18,8 @@
     <ion-input label="Nombre" [(ngModel)]="nombre"></ion-input>
     
     <ion-input label="Apellido" [(ngModel)]="apellido"></ion-input>
-
-    <div class="container" style="text-align: left;">
-      <ion-button expand="block" (click)="presentAlert()">Nivel de educación</ion-button>
-      <h1>Nivel seleccionado: {{ educacion }}</h1>
-    </div>
-    
-    <h1 style="text-align: left;">Fecha de nacimiento</h1>
-    <ion-datetime presentation="date" [(ngModel)]="fechaNacimiento" [preferWheel]="true"></ion-datetime>
+  
 
   </ion-card-content>
 
-  <div class="container ion-text-center">
-    <ion-button (click)="limpiar()">Limpiar</ion-button>
-    <ion-button (click)="mostrarDatos()">Mostrar</ion-button>
-  </div>
 </ion-content>
