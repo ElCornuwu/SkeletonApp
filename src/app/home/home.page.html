@@ -9,28 +9,34 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Bienvenido</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-card-content class="ion-text-center">
-
-    <ion-input label="Nombre" [(ngModel)]="nombre"></ion-input>
-    
-    <ion-input label="Apellido" [(ngModel)]="apellido"></ion-input>
-
-    <div class="container" style="text-align: left;">
-      <ion-button expand="block" (click)="presentAlert()">Nivel de educación</ion-button>
-      <h1>Nivel seleccionado: {{ educacion }}</h1>
-    </div>
-    
-    <h1 style="text-align: left;">Fecha de nacimiento</h1>
-    <ion-datetime presentation="date" [(ngModel)]="fechaNacimiento" [preferWheel]="true"></ion-datetime>
-
-  </ion-card-content>
-
-  <div class="container ion-text-center">
-    <ion-button (click)="limpiar()">Limpiar</ion-button>
-    <ion-button (click)="mostrarDatos()">Mostrar</ion-button>
-  </div>
 </ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="home">
+          <ion-icon name="person"></ion-icon>
+          Perfil
+        </ion-tab-button>
+        <ion-tab-button tab="radio">
+          <ion-icon name="chatbubble-ellipses"></ion-icon>
+          Chat
+        </ion-tab-button>
+        <ion-tab-button tab="ruta">
+          <ion-icon name="cash"></ion-icon>
+          Pago
+        </ion-tab-button>
+        <ion-tab-button tab="search">
+          <ion-icon name="car-sport"></ion-icon>
+          Ruta
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
