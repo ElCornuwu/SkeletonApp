@@ -1,0 +1,37 @@
+
+ion-content{
+    --background:white;
+    
+        #header{
+            height: 23%;
+            background-color:#105b63;
+            border-radius: 0 0 20px 20px;
+            display: column;
+            color: white;
+            padding: 20px;
+        }
+  
+        .fomulario{
+            position: absolute;
+            top: 15%;
+            left: 4%;
+            right: 4%;
+            
+            .form{
+                border-radius: 20px;
+                padding: 15px 10px;
+                ion-item{
+                   margin-bottom: 15px;
+                   border-radius: 5px;
+                }
+                ion-button {
+                    margin-top: 25px;
+                }
+            }
+        }
+        .registro{
+            border-radius: 20px;
+        }
+    
+    } 
+ 
