@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { AnimationController, Animation } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,11 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  @ViewChild('logoWrapper', { read: ElementRef }) logoWrapper!: ElementRef<HTMLDivElement>;
+  @ViewChild('logoImage', { read: ElementRef }) logoImage!: ElementRef<HTMLImageElement>;
+
+  private movementAnimation!: Animation;
+  private rotationAnimation!: Animation;
 
   alertButtons = ['Action'];
 
@@ -18,19 +24,59 @@ export class LoginPage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private animationCtrl: AnimationController
   ) { }
+
+  ngAfterViewInit() {
+    
+    this.movementAnimation = this.animationCtrl
+      .create()
+      .addElement(this.logoWrapper.nativeElement)
+      .duration(500)
+      .iterations(1)
+      .keyframes([
+        { offset: 0, transform: 'translateX(0)' },  
+        { offset: 1, transform: 'translateX(300px)' } 
+      ]);
+
+    
+    this.rotationAnimation = this.animationCtrl
+      .create()
+      .addElement(this.logoImage.nativeElement)
+      .duration(500)
+      .iterations(1)
+      .keyframes([
+        { offset: 0, transform: 'rotate(0deg)' },  
+        { offset: 1, transform: 'rotate(360deg)' } 
+      ])
+      .onFinish(() => {
+        this.alertaInicio('Éxito', this.login.usuario + ' ha iniciado sesión correctamente');
+        this.navCtrl.navigateRoot('/home'); 
+      });
+  }
+
+  play() {
+    this.movementAnimation.play();
+    this.rotationAnimation.play();
+  }
 
   ngOnInit() {
   }
 
-  ingresar(){
-
-    console.log("Estoy en el metodo ingresar")
+  ingresar() {
+    console.log("Estoy en el metodo ingresar");
     console.log(this.login.usuario);
-
-    console.log(this.validar(this.login));
-
+  
+    this.validar(this.login).then((resultado) => {
+      if (resultado === "campos completos") {
+        console.log("Validación exitosa, iniciando animación...");
+        this.play(); 
+        setTimeout(() => {
+          this.navCtrl.navigateRoot('/home');
+        }, 1000);
+      }
+    });
   }
 
   valNumPass(event: any){
@@ -40,27 +86,23 @@ export class LoginPage implements OnInit {
     event.target.value = filteredInput;
   }
 
-  async validar(model:any){
-
-    if(model.usuario===""){
+  async validar(model: any) {
+    if (model.usuario === "") {
       await this.alertaErrorUser();
       return "usuario vacio";
-    }else if(model.usuario.length <3){
+    } else if (model.usuario.length < 3) {
       await this.alertaErrorUser();
-      return "usuario debe ser mayor a 3 caracteres"
-    }else if(model.password==""){
+      return "usuario debe ser mayor a 3 caracteres";
+    } else if (model.password == "") {
       await this.alertaErrorPass();
-      return "password vacío"
-    }else if(model.password.length!=4){
+      return "password vacío";
+    } else if (model.password.length != 4) {
       await this.alertaErrorPass();
-      return "contraseña debe ser de 4 caracteres"
+      return "contraseña debe ser de 4 caracteres";
     }
-
     
-    this.navCtrl.navigateRoot('/home');
-    await this.alertaInicio('Éxito', this.login.usuario+' ha iniciado sesión correctamente');
-    return "campos completos"
-
+    
+    return "campos completos"; 
   }
 
   async alertaInicio(titulo: string, mensaje: string) {
