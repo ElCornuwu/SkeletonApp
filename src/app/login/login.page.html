@@ -1,3 +1,4 @@
+
 <ion-header [translucent]="true">
   <ion-toolbar class="ion-text-center">
     <ion-title>TeLlevoAPP</ion-title>
@@ -12,11 +13,47 @@
   
     <ion-card-content class="ion-text-center">
 
-      <ion-input label="Usuario" maxlength="8" [(ngModel)]="login.usuario"></ion-input>
 
-      <ion-input label="Contraseña" type="password" maxlength="4" [(ngModel)]="login.password" (ionInput)="valNumPass($event)"></ion-input>
-      
-      <ion-button (click)="ingresar()" id="ingresar">Ingresar</ion-button>
+
+
+
+<ion-content>
+  <div id="header">
+
+  </div>
+ 
+
+
+  <div class="fomulario">
+    <ion-card class="form">
+      <ion-card-content>
+
+        <ion-item>
+          <ion-input labelPlacement="stacked"  placeholder="Usuario" maxlength="8" [(ngModel)]="login.usuario">
+            <ion-icon slot="start" name="person" aria-hidden="true"></ion-icon> 
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="password"  placeholder="Contraseña"  value="NeverGonnaGiveYouUp" maxlength="4" [(ngModel)]="login.password" (ionInput)="valNumPass($event)">
+            <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
+            <ion-input-password-toggle  slot="end"></ion-input-password-toggle>
+          </ion-input>
+
+        </ion-item>
+        <ion-button expand="block" shape="round" (click)="ingresar()"  id="ingresar">Ingresar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-card class="registro">
+      <ion-card-content>
+        <div class="socials">
+          <ion-button expand="block" shape="round" >Registrate</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
       <div>
         <a href="/recuperar">Recuperar contraseña</a>
       </div>
@@ -24,3 +61,6 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+
+
