@@ -1,19 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="ion-text-center">
-    <ion-title>Skeleton App</ion-title>
-    <p>Aquí comienza todo</p>
+    <ion-title>TeLlevoAPP</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-card>
+  <ion-card style="margin-top: 25%;">
     <ion-card-header>
-      <ion-card-title class="ion-text-center">Bienvenido!</ion-card-title>
+      <ion-card-title class="ion-text-center">Login</ion-card-title>
     </ion-card-header>
   
     <ion-card-content class="ion-text-center">
@@ -23,8 +17,10 @@
       <ion-input label="Contraseña" type="password" maxlength="4" [(ngModel)]="login.password" (ionInput)="valNumPass($event)"></ion-input>
       
       <ion-button (click)="ingresar()" id="ingresar">Ingresar</ion-button>
+      <div>
+        <a href="/recuperar">Recuperar contraseña</a>
+      </div>
       
-      <p style="text-decoration: underline; color: blue;">Crea tu cuenta gratis</p>
     </ion-card-content>
   </ion-card>
 </ion-content>

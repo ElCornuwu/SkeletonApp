@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Bienvenido 
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,24 +13,8 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card-content class="ion-text-center">
+  <img src="https://bebesit.cl/cdn/shop/files/p-bb6050em2988r-1-c3eb8155-e1b2-4825-b6ef-4ddbf0c54d64_dbfe376d-904d-4fcd-acf3-6c2304385719_1500x1500.jpg?v=1724091098" alt="">
 
-    <ion-input label="Nombre" [(ngModel)]="nombre"></ion-input>
-    
-    <ion-input label="Apellido" [(ngModel)]="apellido"></ion-input>
-
-    <div class="container" style="text-align: left;">
-      <ion-button expand="block" (click)="presentAlert()">Nivel de educación</ion-button>
-      <h1>Nivel seleccionado: {{ educacion }}</h1>
-    </div>
-    
-    <h1 style="text-align: left;">Fecha de nacimiento</h1>
-    <ion-datetime presentation="date" [(ngModel)]="fechaNacimiento" [preferWheel]="true"></ion-datetime>
-
-  </ion-card-content>
-
-  <div class="container ion-text-center">
-    <ion-button (click)="limpiar()">Limpiar</ion-button>
-    <ion-button (click)="mostrarDatos()">Mostrar</ion-button>
-  </div>
+  <div><a href="/programar">programar viaje</a></div>
+  <div><a href="/buscar">buscar viaje</a></div>
 </ion-content>
