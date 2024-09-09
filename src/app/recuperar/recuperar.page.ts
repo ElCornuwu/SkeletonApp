@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
 import { AnimationController, Animation } from '@ionic/angular';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-recuperar',
@@ -18,16 +19,15 @@ export class RecuperarPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private alertController: AlertController,
-    private animationCtrl: AnimationController
+    private animationCtrl: AnimationController,
+    private router: Router
   ) { }
 
- recuperar:any={
+  recuperar:any={
     usuario:"",
   }
-  
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ingresar() {
     this.validar(this.recuperar.usuario).then((resultado) => {
@@ -36,7 +36,11 @@ export class RecuperarPage implements OnInit {
         this.play(); 
         
         setTimeout(() => {
-          this.navCtrl.navigateRoot('/home');
+          let navigationExtras: NavigationExtras = {
+            state: { user: this.recuperar.usuario }
+          };
+          console.log("Navegando con datos: ", navigationExtras);
+          this.router.navigate(['/home'], navigationExtras);
         }, 1000);
       } else {
         console.log("Validación fallida:", resultado);
@@ -55,7 +59,6 @@ export class RecuperarPage implements OnInit {
     
     return "campos completos"; 
   }
-  
 
   async alertaErrorUser(mensaje: string) {
     const alert = await this.alertController.create({
@@ -64,10 +67,8 @@ export class RecuperarPage implements OnInit {
       message: mensaje,
       buttons: ['Ok'],
     });
-  
     await alert.present();
   }
-  
 
   async alertaInicio() {
     const alert = await this.alertController.create({
@@ -75,12 +76,10 @@ export class RecuperarPage implements OnInit {
       message: `Se ha mandado un correo al usuario: ${this.recuperar.usuario} para recuperar la contraseña`,
       buttons: ['Ok'],
     });
-
     await alert.present();
   }
 
   ngAfterViewInit() {
-    
     this.movementAnimation = this.animationCtrl
       .create()
       .addElement(this.logoWrapper.nativeElement)
@@ -91,7 +90,6 @@ export class RecuperarPage implements OnInit {
         { offset: 1, transform: 'translateX(300px)' } 
       ]);
 
-    
     this.rotationAnimation = this.animationCtrl
       .create()
       .addElement(this.logoImage.nativeElement)
@@ -103,10 +101,8 @@ export class RecuperarPage implements OnInit {
       ])
       .onFinish(() => {
         this.alertaInicio();
-        this.navCtrl.navigateRoot('/home'); 
       });
   }
-
 
   play() {
     this.movementAnimation.play();

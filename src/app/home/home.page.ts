@@ -12,12 +12,9 @@ export class HomePage{
   usuario: String = '';
 
   niveles:any[]=[
-    {id:1,nivel:"Basica Incompleta"},
-    {id:2,nivel:"Basica Completa"},
-    {id:3,nivel:"Media Incompleta"},
-    {id:4,nivel:"Media Completa"},
-    {id:5,nivel:"Media Incompleta"},
-    {id:6,nivel:"Superior Completa"}
+    {id:1,nivel:"Basica"},
+    {id:2,nivel:"Media"},
+    {id:3,nivel:"Superior"}
   ]
   data:any={
     nombre:"",
