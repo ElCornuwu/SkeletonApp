@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
+import { AnimationController, Animation } from '@ionic/angular';
 
 @Component({
   selector: 'app-recuperar',
@@ -8,10 +9,16 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./recuperar.page.scss'],
 })
 export class RecuperarPage implements OnInit {
+  @ViewChild('logoWrapper', { read: ElementRef }) logoWrapper!: ElementRef<HTMLDivElement>;
+  @ViewChild('logoImage', { read: ElementRef }) logoImage!: ElementRef<HTMLImageElement>;
+  
+  private movementAnimation!: Animation;
+  private rotationAnimation!: Animation;
 
   constructor(
     private navCtrl: NavController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private animationCtrl: AnimationController
   ) { }
 
  recuperar:any={
@@ -22,28 +29,45 @@ export class RecuperarPage implements OnInit {
   ngOnInit() {
   }
 
-  async validar(model:any){
-    if(model.usuario === ""){
-      return await this.alertaErrorUser();
-    }else if(model.usuario.length < 3){
-      return await this.alertaErrorUser();
-    }
-
-    this.navCtrl.navigateRoot('/home');
-    return await this.alertaInicio();
-
+  ingresar() {
+    this.validar(this.recuperar.usuario).then((resultado) => {
+      if (resultado === "campos completos") {
+        console.log("Validación exitosa, iniciando animación...");
+        this.play(); 
+        
+        setTimeout(() => {
+          this.navCtrl.navigateRoot('/home');
+        }, 1000);
+      } else {
+        console.log("Validación fallida:", resultado);
+      }
+    });
   }
 
-  async alertaErrorUser() {
+  async validar(usuario: string) {
+    if (!usuario) {
+      await this.alertaErrorUser('El campo de usuario no puede estar vacío');
+      return "usuario vacío";
+    } else if (usuario.length < 3) {
+      await this.alertaErrorUser('El usuario debe contener un mínimo de 3 caracteres');
+      return "usuario demasiado corto";
+    }
+    
+    return "campos completos"; 
+  }
+  
+
+  async alertaErrorUser(mensaje: string) {
     const alert = await this.alertController.create({
       header: 'ERROR!',
       subHeader: 'Error al iniciar sesión',
-      message: 'El usuario debe contener un minimo de 3 caracteres',
+      message: mensaje,
       buttons: ['Ok'],
     });
-
+  
     await alert.present();
   }
+  
 
   async alertaInicio() {
     const alert = await this.alertController.create({
@@ -53,6 +77,40 @@ export class RecuperarPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  ngAfterViewInit() {
+    
+    this.movementAnimation = this.animationCtrl
+      .create()
+      .addElement(this.logoWrapper.nativeElement)
+      .duration(500)
+      .iterations(1)
+      .keyframes([
+        { offset: 0, transform: 'translateX(0)' },  
+        { offset: 1, transform: 'translateX(300px)' } 
+      ]);
+
+    
+    this.rotationAnimation = this.animationCtrl
+      .create()
+      .addElement(this.logoImage.nativeElement)
+      .duration(500)
+      .iterations(1)
+      .keyframes([
+        { offset: 0, transform: 'rotate(0deg)' },  
+        { offset: 1, transform: 'rotate(360deg)' } 
+      ])
+      .onFinish(() => {
+        this.alertaInicio();
+        this.navCtrl.navigateRoot('/home'); 
+      });
+  }
+
+
+  play() {
+    this.movementAnimation.play();
+    this.rotationAnimation.play();
   }
 
 }

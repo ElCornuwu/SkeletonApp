@@ -36,15 +36,6 @@ const routes: Routes = [
     path: 'recuperar',
     loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule)
   },
-  {
-    path: 'buscar',
-    loadChildren: () => import('./buscar/buscar.module').then( m => m.BuscarPageModule)
-  },
-  {
-    path: 'programar',
-    loadChildren: () => import('./programar/programar.module').then( m => m.ProgramarPageModule)
-
-  },
 
 ];
 
