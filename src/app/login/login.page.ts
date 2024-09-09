@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { AnimationController, Animation } from '@ionic/angular';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,8 @@ export class LoginPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private alertController: AlertController,
-    private animationCtrl: AnimationController
+    private animationCtrl: AnimationController,
+    private router: Router
   ) { }
 
   ngAfterViewInit() {
@@ -73,7 +75,10 @@ export class LoginPage implements OnInit {
         console.log("Validación exitosa, iniciando animación...");
         this.play(); 
         setTimeout(() => {
-          this.navCtrl.navigateRoot('/home');
+          let navigationExtras:NavigationExtras={
+            state: {user:this.login.usuario} 
+          }
+          this.router.navigate(['/home'],navigationExtras);
         }, 1000);
       }
     });

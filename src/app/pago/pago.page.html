@@ -8,31 +8,33 @@
 
 
 
+<ion-content class="ion-padding">
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button [routerLink]="['/home']" tab="inicio">
+        <ion-icon name="home"></ion-icon>
+        Inicio
+      </ion-tab-button>
 
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
+      <ion-tab-button [routerLink]="['/chat']" tab="chat">
+        <ion-icon name="chatbubble-ellipses"></ion-icon>
+        Chat
+      </ion-tab-button>
 
-    <ion-tab-button [routerLink]="['/home']" tab="inicio">
-      <ion-icon name="home"></ion-icon>
-      Inicio
-    </ion-tab-button>
-    
-    <ion-tab-button [routerLink]="['/chat']" tab="chat">
-      <ion-icon name="chatbubble-ellipses"></ion-icon>
-      Chat
-    </ion-tab-button>
-    <ion-tab-button [routerLink]="['/ruta']"  tab="ruta">
-      <ion-icon name="car-sport"></ion-icon>
-      Ruta
-    </ion-tab-button>
-    <ion-tab-button [routerLink]="['/pago']"  tab="pago">
-      <ion-icon name="cash"></ion-icon>
-      Pago
-    </ion-tab-button>
-    
-    <ion-tab-button [routerLink]="['/perfil']" tab="perfil">      
-      <ion-icon name="person"></ion-icon>
-      Perfil
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+      <ion-tab-button [routerLink]="['/ruta']" tab="ruta">
+        <ion-icon name="car-sport"></ion-icon>
+        Ruta
+      </ion-tab-button>
+
+      <ion-tab-button [routerLink]="['/pago']" tab="pago">
+        <ion-icon name="cash"></ion-icon>
+        Pago
+      </ion-tab-button>
+
+      <ion-tab-button [routerLink]="['/perfil']" tab="perfil">
+        <ion-icon name="person"></ion-icon>
+        Perfil
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

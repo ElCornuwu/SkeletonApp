@@ -8,8 +8,8 @@
   <div class="fomulario">
     <ion-card class="form">
       <ion-card-content>
-        <div class="ion-text-center">
-          <img src="assets\icon\logo.png"  width="170px" alt="">
+        <div #logoWrapper class="logo-wrapper ion-text-center">
+          <img #logoImage src="assets/icon/logo.png" width="170px" alt="Logo">
         </div>
         
        
@@ -19,7 +19,7 @@
           </ion-input>
           
         </ion-item>
-        <ion-button id="ingresar" expand="block" shape="round"  (click)="validar(this.recuperar)">Recuperar</ion-button>
+        <ion-button id="ingresar" expand="block" shape="round"  (click)="ingresar()">Recuperar</ion-button>
         
         
 
