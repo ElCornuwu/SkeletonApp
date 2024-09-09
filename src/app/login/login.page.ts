@@ -54,7 +54,6 @@ export class LoginPage implements OnInit {
       ])
       .onFinish(() => {
         this.alertaInicio('Éxito', this.login.usuario + ' ha iniciado sesión correctamente');
-        this.navCtrl.navigateRoot('/home'); 
       });
   }
 
@@ -75,10 +74,11 @@ export class LoginPage implements OnInit {
         console.log("Validación exitosa, iniciando animación...");
         this.play(); 
         setTimeout(() => {
-          let navigationExtras:NavigationExtras={
-            state: {user:this.login.usuario} 
-          }
-          this.router.navigate(['/home'],navigationExtras);
+          let navigationExtras: NavigationExtras = {
+            state: { user: this.login.usuario }
+          };
+          console.log("Navegando con datos: ", navigationExtras);
+          this.router.navigate(['/home'], navigationExtras);
         }, 1000);
       }
     });
