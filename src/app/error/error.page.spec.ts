@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PagoPage } from './pago.page';
+import { ErrorPage } from './error.page';
 
-describe('PagoPage', () => {
-  let component: PagoPage;
-  let fixture: ComponentFixture<PagoPage>;
+describe('ErrorPage', () => {
+  let component: ErrorPage;
+  let fixture: ComponentFixture<ErrorPage>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PagoPage);
+    fixture = TestBed.createComponent(ErrorPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

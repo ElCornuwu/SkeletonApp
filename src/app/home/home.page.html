@@ -1,55 +1,7 @@
-<ion-header >
-  <ion-toolbar>
-    <ion-title class="ion-text-center">
-
-      <p *ngIf="usuario">Bienvenido: {{usuario}}</p>
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-<b class="ion-text-center">
-  <h4>Información Adicional</h4>
-</b>
-<ion-item class="ion-padding-horizontal">
-  <ion-label position="stacked">Nombre</ion-label>
-  <ion-input type="text" [(ngModel)]="data.nombre"></ion-input>
-</ion-item>
-<ion-item class="ion-padding-horizontal">
-  <ion-label position="stacked">Apellido</ion-label>
-  <ion-input type="text" [(ngModel)]="data.apellido"></ion-input>
-</ion-item>
-<ion-item class="ion-padding-horizontal">
-  <ion-label position="stacked" class="ion-padding-bottom">Educación</ion-label>
-  <ion-select [(ngModel)]="data.education" placeholder="Seleccionar nivel">
-    <ion-select-option *ngFor="let nivel of niveles" [value]="nivel.nivel">{{ nivel.nivel }}</ion-select-option>
-  </ion-select>
-</ion-item>
-<ion-item class="ion-padding-horizontal">
-  <ion-label position="stacked" class="ion-padding-bottom">Fecha Nacimiento</ion-label>
-  <ion-input type="date" [(ngModel)]="data.nacimiento"></ion-input>
-</ion-item>
-<ion-grid>
-  <ion-row>
-    <ion-col col-6>
-      <ion-button shape="block" (click)="limpiar()">
-        Limpiar
-      </ion-button>
-    </ion-col>
-    <ion-col col-6>
-      <ion-button shape="block" (click)="mostrar()">
-        Mostrar
-      </ion-button>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-
 
 <ion-content class="ion-padding">
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button [routerLink]="['/home']" tab="inicio">
-        <ion-icon name="home"></ion-icon>
-        Inicio
-      </ion-tab-button>
 
       <ion-tab-button [routerLink]="['/chat']" tab="chat">
         <ion-icon name="chatbubble-ellipses"></ion-icon>
@@ -59,11 +11,6 @@
       <ion-tab-button [routerLink]="['/ruta']" tab="ruta">
         <ion-icon name="car-sport"></ion-icon>
         Ruta
-      </ion-tab-button>
-
-      <ion-tab-button [routerLink]="['/pago']" tab="pago">
-        <ion-icon name="cash"></ion-icon>
-        Pago
       </ion-tab-button>
 
       <ion-tab-button [routerLink]="['/perfil']" tab="perfil">
