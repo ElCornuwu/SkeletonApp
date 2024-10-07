@@ -57,6 +57,20 @@
             "hora": "18:00",
             "destino": "Concón",
             "precio": 9000
+        },
+        {
+            "userID": 6,
+            "id": 5,
+            "hora": "22:00",
+            "destino": "Casablanca",
+            "precio": 15000
+        },
+        {
+            "userID": 2,
+            "id": 6,
+            "hora": "12:00",
+            "destino": "Curacavi",
+            "precio": 5000
         }
     ]
 }
