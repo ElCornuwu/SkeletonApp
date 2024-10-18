@@ -1,0 +1,39 @@
+
+
+ion-content{
+  --background:white;}
+  
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  background-color: "red"; /* Fondo blanco */
+}
+
+.error-container {
+  margin-top: 20px;
+}
+
+.car-image {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+ion-title{
+  color: white;
+}
