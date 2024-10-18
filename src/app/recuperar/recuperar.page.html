@@ -2,32 +2,20 @@
   <div id="header">
     
   </div>
- 
-
-
   <div class="fomulario">
     <ion-card class="form">
       <ion-card-content>
         <div #logoWrapper class="logo-wrapper ion-text-center">
           <img #logoImage src="assets/icon/logo.png" width="170px" alt="Logo">
-        </div>
-        
-       
+        </div> 
         <ion-item>
           <ion-input labelPlacement="stacked"  placeholder="Usuario" maxlength="8" [(ngModel)]="recuperar.usuario">
             <ion-icon slot="start" name="person" aria-hidden="true"></ion-icon> 
-          </ion-input>
-          
+          </ion-input>  
         </ion-item>
         <ion-button id="ingresar" expand="block" shape="round"  (click)="ingresar()">Recuperar</ion-button>
-        
-        
-
-      
       </ion-card-content>
     </ion-card>
-
-
   </div>
 </ion-content>
 

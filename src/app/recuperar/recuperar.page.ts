@@ -40,7 +40,7 @@ export class RecuperarPage implements OnInit {
             state: { user: this.recuperar.usuario }
           };
           console.log("Navegando con datos: ", navigationExtras);
-          this.router.navigate(['/home'], navigationExtras);
+          this.router.navigate(['/login'], navigationExtras);
         }, 1000);
       } else {
         console.log("Validación fallida:", resultado);
