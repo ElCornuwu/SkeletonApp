@@ -78,7 +78,7 @@ export class LoginPage implements OnInit {
             state: { user: this.login.usuario }
           };
           console.log("Navegando con datos: ", navigationExtras);
-          this.router.navigate(['/home'], navigationExtras);
+          this.router.navigate(['/home/ruta'], navigationExtras);
         }, 1000);
       }
     });
