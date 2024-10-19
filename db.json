@@ -31,31 +31,16 @@
   ],
   "viaje": [
     {
-      "userID": 6,
-      "id": "3",
-      "hora": "16:00",
-      "destino": "Viña del Mar",
-      "precio": 12500
+      "id": "942f",
+      "destino": "Los vilos",
+      "hora": "13:00",
+      "precio": 10000
     },
     {
-      "userID": 8,
-      "id": "4",
+      "id": "6d1e",
+      "destino": "Tongoy",
       "hora": "18:00",
-      "destino": "Concón",
-      "precio": 9000
-    },
-    {
-      "userID": 6,
-      "id": "5",
-      "hora": "22:00",
-      "destino": "Casablanca",
-      "precio": 15000
-    },
-    {
-      "id": "8435",
-      "destino": "curacavi",
-      "hora": "12:00",
-      "precio": 11111
+      "precio": 12000
     }
   ]
 }

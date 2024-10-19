@@ -6,7 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { RutaComponent } from './ruta/ruta.component';
-
+import { FormularioViajeComponent } from '../formulario-viaje/formulario-viaje.component';
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { RutaComponent } from './ruta/ruta.component';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, RutaComponent]
+  declarations: [HomePage, RutaComponent, FormularioViajeComponent]
 })
 export class HomePageModule {}

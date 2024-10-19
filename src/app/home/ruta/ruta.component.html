@@ -5,13 +5,15 @@
     
     <div>
       <h2>Lista de Viajes</h2>
+      <div style="text-align: center;"><ion-button (click)="mostrarFormularioNuevoViaje()">Agregar Viaje</ion-button></div>
       <ul>
         <li *ngFor="let viaje of viajes">
           <strong>Destino:</strong> {{ viaje.destino }} <br>
           <strong>Hora:</strong> {{ viaje.hora }} <br>
           <strong>Precio:</strong> ${{ viaje.precio }} <br>
           
-          <!-- Botón para eliminar el viaje -->
+          
+          <ion-button (click)="mostrarFormularioEditarViaje(viaje)">Editar</ion-button>
           <ion-button (click)="eliminarViaje(viaje.id)">Eliminar</ion-button>
         </li>
       </ul>
@@ -21,28 +23,7 @@
       <p>No hay viajes disponibles.</p>
     </div>
 
-    <!-- Botón para mostrar el formulario de nuevo viaje -->
-    <ion-button (click)="mostrarFormularioNuevoViaje()">Agregar Viaje</ion-button>
-
-    <!-- Formulario de nuevo viaje -->
-    <div *ngIf="mostrarFormulario">
-      <h3>Agregar un nuevo viaje</h3>
-      <form (ngSubmit)="agregarViaje()">
-        <label>
-          <p style="color: black;">Destino:</p>
-          <input [(ngModel)]="nuevoViaje.destino" name="destino" required />
-        </label>
-        <label>
-          <p style="color: black;">Hora:</p>
-          <input [(ngModel)]="nuevoViaje.hora" name="hora" required />
-        </label>
-        <label>
-          <p style="color: black;">Precio:</p>
-          <input type="number" [(ngModel)]="nuevoViaje.precio" name="precio" required />
-        </label>
-        <ion-button type="submit">Agregar Viaje</ion-button>
-      </form>
-    </div>
+    
 
   </div>
 </ion-content>
