@@ -1,76 +1,67 @@
 {
-    "user": [
-        {
-            "id": 1,
-            "nombre": "Ian Reyes",
-            "tipo": "Pasajero",
-            "mail": "ian@gmail.com",
-            "telefono": "909090909"
-        },
-        {
-            "id": 2,
-            "nombre": "Ignacio Puelles",
-            "tipo": "Conductor",
-            "mail": "puelles@gmail.com",
-            "telefono": "987654321"
-        },
-        {
-            "id": 3,
-            "nombre": "María González",
-            "tipo": "Pasajero",
-            "mail": "maria@gmail.com",
-            "telefono": "123456789"
-        },
-        {
-            "id": 4,
-            "nombre": "Carlos Méndez",
-            "tipo": "Conductor",
-            "mail": "carlos.m@gmail.com",
-            "telefono": "456789123"
-        }
-    ],
-    "viaje": [
-        {
-            "userID": 2,
-            "id": 1,
-            "hora": "12:00",
-            "destino": "Playa Ancha",
-            "precio": 10000
-        },
-        {
-            "userID": 4,
-            "id": 2,
-            "hora": "14:00",
-            "destino": "Valparaíso",
-            "precio": 15000
-        },
-        {
-            "userID": 6,
-            "id": 3,
-            "hora": "16:00",
-            "destino": "Viña del Mar",
-            "precio": 12500
-        },
-        {
-            "userID": 8,
-            "id": 4,
-            "hora": "18:00",
-            "destino": "Concón",
-            "precio": 9000
-        },
-        {
-            "userID": 6,
-            "id": 5,
-            "hora": "22:00",
-            "destino": "Casablanca",
-            "precio": 15000
-        },
-        {
-            "userID": 2,
-            "id": 6,
-            "hora": "12:00",
-            "destino": "Curacavi",
-            "precio": 5000
-        }
-    ]
+  "user": [
+    {
+      "id": "1",
+      "nombre": "Ian Reyes",
+      "tipo": "Pasajero",
+      "mail": "ian@gmail.com",
+      "telefono": "909090909"
+    },
+    {
+      "id": "2",
+      "nombre": "Ignacio Puelles",
+      "tipo": "Conductor",
+      "mail": "puelles@gmail.com",
+      "telefono": "987654321"
+    },
+    {
+      "id": "3",
+      "nombre": "María González",
+      "tipo": "Pasajero",
+      "mail": "maria@gmail.com",
+      "telefono": "123456789"
+    },
+    {
+      "id": "4",
+      "nombre": "Carlos Méndez",
+      "tipo": "Conductor",
+      "mail": "carlos.m@gmail.com",
+      "telefono": "456789123"
+    }
+  ],
+  "viaje": [
+    {
+      "userID": 6,
+      "id": "3",
+      "hora": "16:00",
+      "destino": "Viña del Mar",
+      "precio": 12500
+    },
+    {
+      "userID": 8,
+      "id": "4",
+      "hora": "18:00",
+      "destino": "Concón",
+      "precio": 9000
+    },
+    {
+      "userID": 6,
+      "id": "5",
+      "hora": "22:00",
+      "destino": "Casablanca",
+      "precio": 15000
+    },
+    {
+      "id": "6181",
+      "destino": "Milipilla",
+      "hora": "12:00",
+      "precio": 7000
+    },
+    {
+      "id": "06ff",
+      "destino": "curacavi",
+      "hora": "12:00",
+      "precio": 1000
+    }
+  ]
 }

@@ -24,6 +24,12 @@ export class DatosService {
     );
   }
 
+  deleteViaje(id: number): Observable<any> {
+    return this.http.delete(this.apiURL+'/viaje/' + id, {responseType: 'json'});
+  }
   
+  addViaje(viaje: any): Observable<any> {
+    return this.http.post(this.apiURL + '/viaje', viaje, { responseType: 'json' });
+  }
 }
 
