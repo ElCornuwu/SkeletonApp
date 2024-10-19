@@ -8,20 +8,16 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RutaComponent } from './home/ruta/ruta.component';
 
-import { provideHttpClient } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';  
+import { HttpClientModule } from '@angular/common/http';
 
 
 
 @NgModule({
+
   declarations: [AppComponent,RutaComponent],
-  imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule
-  ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    provideHttpClient()
+  imports: [HttpClientModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
