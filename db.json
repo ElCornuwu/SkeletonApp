@@ -52,16 +52,10 @@
       "precio": 15000
     },
     {
-      "id": "6181",
-      "destino": "Milipilla",
-      "hora": "12:00",
-      "precio": 7000
-    },
-    {
-      "id": "06ff",
+      "id": "8435",
       "destino": "curacavi",
       "hora": "12:00",
-      "precio": 1000
+      "precio": 11111
     }
   ]
 }
