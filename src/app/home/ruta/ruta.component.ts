@@ -13,9 +13,11 @@ export class RutaComponent implements OnInit {
   constructor(private datosService: DatosService) { }
 
   ngOnInit() {
-    
-    this.datosService.getViajes().subscribe((data: any) => {  
-      this.viajes = data.viaje;  
+    this.datosService.getViajes().subscribe((data) => {  
+      console.log(data);
+      this.viajes = data;
+    }, (error) => {
+      console.error("Error al obtener los viajes: ", error);
     });
   }
 }

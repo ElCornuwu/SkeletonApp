@@ -1,21 +1,29 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatosService {
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin' :'*'
+    })
+  }
 
-  private dbUrl = 'assets/files/db.json';
+  apiURL = 'http://localhost:3000';
 
   constructor(private http:HttpClient) { }
 
   getViajes(): Observable<any> {
-    return this.http.get(this.dbUrl);
+    return this.http.get(this.apiURL + '/viaje').pipe(
+      retry(3)
+    );
   }
 
-  apiURL = 'https://jsonplaceholder.typicode.com';
+  
 }
 
