@@ -6,7 +6,9 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { RutaComponent } from './ruta/ruta.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 import { FormularioViajeComponent } from '../formulario-viaje/formulario-viaje.component';
+import { AdministrarViajeComponent } from './administrar-viaje/administrar-viaje.component';
 import { AjustesComponent } from './ajustes/ajustes.component';
 
 @NgModule({
@@ -16,6 +18,7 @@ import { AjustesComponent } from './ajustes/ajustes.component';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, RutaComponent, FormularioViajeComponent, AjustesComponent]
+  declarations: [HomePage, RutaComponent,UsuarioComponent, FormularioViajeComponent,AdministrarViajeComponent, AjustesComponent]
+
 })
 export class HomePageModule {}
