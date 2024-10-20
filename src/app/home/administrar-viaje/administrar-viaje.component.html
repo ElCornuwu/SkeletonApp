@@ -1,3 +1,31 @@
-<p>
-  administrar-viaje works!
-</p>
+<ion-content>
+  <div>
+
+
+    <ion-searchbar show-clear-button="focus" value="Busca tu destino"></ion-searchbar>
+    
+    <div>
+      <h2>Lista de Viajes</h2>
+      <div style="text-align: center;"><ion-button (click)="mostrarFormularioNuevoViaje()">Agregar Viaje</ion-button></div>
+      <ul>
+        <li *ngFor="let viaje of viajes">
+          <strong>Destino:</strong> {{ viaje.destino }} <br>
+          <strong>Hora:</strong> {{ viaje.hora }} <br>
+          <strong>Precio:</strong> ${{ viaje.precio }} <br>
+          <strong>Patente:</strong> {{ viaje.patente }} <br>
+          <strong>Cupo:</strong> {{ viaje.cupo }} <br>
+          
+          <ion-button (click)="mostrarFormularioEditarViaje(viaje)">Editar</ion-button>
+          <ion-button (click)="eliminarViaje(viaje.id)">Eliminar</ion-button>
+        </li>
+      </ul>
+    </div>
+    
+    <div *ngIf="viajes.length === 0">
+      <p>No hay viajes disponibles.</p>
+    </div>
+
+    
+
+  </div>
+</ion-content>

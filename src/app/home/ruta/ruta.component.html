@@ -2,26 +2,28 @@
   <div>
 
 
-    <ion-searchbar show-clear-button="focus" value="Show on Focus"></ion-searchbar>
+    <ion-searchbar 
+      show-clear-button="focus" 
+      [(ngModel)]="buscar" 
+      (ionInput)="filtrarViajes()" 
+      placeholder="Busca tu destino">
+    </ion-searchbar>
     
     <div>
       <h2>Lista de Viajes</h2>
-      <div style="text-align: center;"><ion-button (click)="mostrarFormularioNuevoViaje()">Agregar Viaje</ion-button></div>
       <ul>
-        <li *ngFor="let viaje of viajes">
+        <li *ngFor="let viaje of filtroViajes">
           <strong>Destino:</strong> {{ viaje.destino }} <br>
           <strong>Hora:</strong> {{ viaje.hora }} <br>
           <strong>Precio:</strong> ${{ viaje.precio }} <br>
           <strong>Patente:</strong> {{ viaje.patente }} <br>
           <strong>Cupo:</strong> {{ viaje.cupo }} <br>
           
-          <ion-button (click)="mostrarFormularioEditarViaje(viaje)">Editar</ion-button>
-          <ion-button (click)="eliminarViaje(viaje.id)">Eliminar</ion-button>
         </li>
       </ul>
     </div>
     
-    <div *ngIf="viajes.length === 0">
+    <div *ngIf="filtroViajes.length === 0">
       <p>No hay viajes disponibles.</p>
     </div>
 
