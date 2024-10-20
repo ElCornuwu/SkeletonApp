@@ -23,7 +23,7 @@ const routes: Routes = [
       {
         path:'administrar-viaje',
         component: AdministrarViajeComponent
-     
+      },
       {
         path:'ajustes',
         component: AjustesComponent
