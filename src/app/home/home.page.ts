@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DatosService } from '../datos.service';
 
 
 @Component({
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage{
+
+constructor (public datosService: DatosService){}
 
 }
 
