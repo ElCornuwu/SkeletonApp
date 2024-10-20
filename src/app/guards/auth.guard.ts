@@ -1,25 +1,28 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
-import { DatosService } from '../datos.service'; // Importa el AuthService que maneja la lógica de autenticación
+import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { DatosService } from '../datos.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  
+
   constructor(private authService: DatosService, private router: Router) {}
 
-  
-  canActivate(): boolean {
+  canActivate(route: ActivatedRouteSnapshot): boolean {
+    // Verifica si el usuario está autenticado
     if (this.authService.isAuthenticated()) {
-      const role = this.authService.getUserRole();
-      // Permitir acceso a ambas rutas
-      if (role === 'Conductor' || role === 'Pasajero') {
+      const rol = this.authService.getUserRole()||'';
+      const allowedRoles = route.data['roles'] as Array<string>; // Extrae los roles permitidos de la ruta
+
+      // Verifica si el rol del usuario está permitido en la ruta
+      if (allowedRoles.includes(rol)) {
         return true;
       }
     }
-    
-    this.router.navigate(['/login']); // Redirige si no está autenticado
+
+    // Redirige al login si no está autenticado o no tiene permisos
+    this.router.navigate(['/login']);
     return false;
-  }  
+  }
 }

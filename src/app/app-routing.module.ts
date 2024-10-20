@@ -7,6 +7,8 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
     canActivate: [AuthGuard],
+    data: { roles: ['Pasajero','Conductor'] }
+    
   },
   {
     path: '',
@@ -19,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: 'recuperar',
-    loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule)
+    loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule),
+    
   },
   {
     path: '**',

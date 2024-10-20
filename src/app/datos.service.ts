@@ -1,21 +1,25 @@
-import { Injectable } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';  // Para reintentar solicitudes fallidas
 import { Router } from '@angular/router';
+//import { DatosService } from './datos.service';//xxxxx
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatosService {
+  getUserRol() {
+    throw new Error('Method not implemented.');
+  }
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*'
     })
   };
-
-  apiURL = 'http://localhost:3000';  // Cambia esta URL si tienes otra ruta de API
+  apiURL = 'http://localhost:3000';  
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -94,4 +98,7 @@ export class DatosService {
     localStorage.removeItem('user');  // Elimina la información del usuario
     this.router.navigate(['/login']);  // Redirige al usuario a la página de login
   }
+
+
+  
 }
