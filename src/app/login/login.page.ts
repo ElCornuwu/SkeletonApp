@@ -3,7 +3,7 @@ import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { AnimationController, Animation } from '@ionic/angular';
 import { Router, NavigationExtras } from '@angular/router';
-
+import { DatosService } from '../datos.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -18,6 +18,8 @@ export class LoginPage implements OnInit {
 
   alertButtons = ['Action'];
 
+  rol:any=""
+
   login:any={
     usuario:"",
     password:""
@@ -27,7 +29,8 @@ export class LoginPage implements OnInit {
     private navCtrl: NavController,
     private alertController: AlertController,
     private animationCtrl: AnimationController,
-    private router: Router
+    private router: Router,
+    private datosService: DatosService
   ) { }
 
   ngAfterViewInit() {
@@ -66,22 +69,26 @@ export class LoginPage implements OnInit {
   }
 
   ingresar() {
-    console.log("Estoy en el metodo ingresar");
-    console.log(this.login.usuario);
-  
     this.validar(this.login).then((resultado) => {
       if (resultado === "campos completos") {
-        console.log("Validación exitosa, iniciando animación...");
-        this.play(); 
-        setTimeout(() => {
-          let navigationExtras: NavigationExtras = {
-            state: { user: this.login.usuario }
-          };
-          console.log("Navegando con datos: ", navigationExtras);
-          this.router.navigate(['/home/ruta'], navigationExtras);
-        }, 1000);
+        this.datosService.login(this.login.usuario, this.login.password); // Llamar al servicio de login
       }
     });
+  }
+
+  validarRol() {
+    const role = this.datosService.getUserRole(); // Obtener el rol desde el servicio
+    if (role) {
+      if (role === "Pasajero") {
+        this.router.navigate(['/home/ruta']);
+      } else if (role === "Conductor") {
+        this.router.navigate(['/home/usuario']);
+      } else {
+        console.error("Rol no reconocido");
+      }
+    } else {
+      console.error("No se pudo obtener el rol del usuario");
+    }
   }
 
   valNumPass(event: any){

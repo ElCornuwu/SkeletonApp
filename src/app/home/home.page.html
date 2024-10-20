@@ -15,7 +15,7 @@
         <ion-button  [routerLink]="['/home/ruta']" fill="clear" > <ion-icon name="car-sport"></ion-icon>Viaje</ion-button>
        </ion-item>
       <ion-item>
-        <ion-button [routerLink]="['/login']"  fill="clear" >  <ion-icon name="exit"></ion-icon> Cerrar sesion</ion-button>
+        <ion-button (click)="datosService.logout()"  fill="clear" >  <ion-icon name="exit"></ion-icon> Cerrar sesion</ion-button>
       </ion-item>
     </ion-list>
   </ion-content>
