@@ -21,9 +21,10 @@
     {
       "id": "3",
       "nombre": "victor",
-      "mail": "puelles@gmail.com",
+
+      "mail": "victor@gmail.com",
       "telefono": "987654321",
-      "password": "2222",
+      "password": "1111",
       "rol": "Conductor",
       "token": "1111"
     }
@@ -34,48 +35,54 @@
       "id": "1",
       "hora": "12:00",
       "destino": "Playa Ancha",
-      "precio": 10000
-    },
-    {
-      "userID": 4,
-      "id": "2",
-      "hora": "14:00",
-      "destino": "Valparaíso",
-      "precio": 15000
-    },
-    {
-      "userID": 6,
-      "id": "3",
-      "hora": "16:00",
-      "destino": "Viña del Mar",
-      "precio": 12500
-    },
-    {
-      "userID": 8,
-      "id": "4",
-      "hora": "18:00",
-      "destino": "Concón",
-      "precio": 9000
-    },
-    {
-      "userID": 6,
-      "id": "5",
-      "hora": "22:00",
-      "destino": "Casablanca",
-      "precio": 15000
+      "precio": 10000,
+      "patente": "",
+      "cupo": 4
     },
     {
       "userID": 2,
+      "id": "2",
+      "hora": "14:00",
+      "destino": "Valparaíso",
+      "precio": 15000,
+      "patente": "",
+      "cupo": 4
+    },
+    {
+      "userID": 2,
+      "id": "3",
+      "hora": "16:00",
+      "destino": "Viña del Mar",
+      "precio": 12500,
+      "patente": "",
+      "cupo": 4
+    },
+    {
+      "userID": 3,
+      "id": "4",
+      "hora": "18:00",
+      "destino": "Concón",
+      "precio": 9000,
+      "patente": "",
+      "cupo": 4
+    },
+    {
+      "userID": 3,
+      "id": "5",
+      "hora": "22:00",
+      "destino": "Casablanca",
+      "precio": 15000,
+      "patente": "",
+      "cupo": 4
+    },
+    {
+      "userID": 3,
       "id": "6",
       "hora": "12:00",
       "destino": "Curacavi",
-      "precio": 5000
-    },
-    {
-      "id": "a9fc",
-      "destino": "",
-      "hora": "",
-      "precio": 0
+      "precio": 5000,
+      "patente": "",
+      "cupo": 4
     }
   ]
 }

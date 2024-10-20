@@ -4,6 +4,7 @@ import { HomePage } from './home.page';
 import { RutaComponent } from './ruta/ruta.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { AdministrarViajeComponent } from './administrar-viaje/administrar-viaje.component';
+import { AjustesComponent } from './ajustes/ajustes.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path:'administrar-viaje',
         component: AdministrarViajeComponent
+     
+      {
+        path:'ajustes',
+        component: AjustesComponent
       }
     ]
   },
