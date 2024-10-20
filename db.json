@@ -17,6 +17,15 @@
       "password": "1111",
       "rol": "Conductor",
       "token": "1111"
+    },
+    {
+      "id": "3",
+      "nombre": "victor",
+      "mail": "puelles@gmail.com",
+      "telefono": "987654321",
+      "password": "2222",
+      "rol": "Conductor",
+      "token": "1111"
     }
   ],
   "viaje": [
@@ -61,6 +70,12 @@
       "hora": "12:00",
       "destino": "Curacavi",
       "precio": 5000
+    },
+    {
+      "id": "a9fc",
+      "destino": "",
+      "hora": "",
+      "precio": 0
     }
   ]
 }

@@ -6,7 +6,9 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { RutaComponent } from './ruta/ruta.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 import { FormularioViajeComponent } from '../formulario-viaje/formulario-viaje.component';
+import { AdministrarViajeComponent } from './administrar-viaje/administrar-viaje.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { FormularioViajeComponent } from '../formulario-viaje/formulario-viaje.c
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, RutaComponent, FormularioViajeComponent]
+  declarations: [HomePage, RutaComponent,UsuarioComponent, FormularioViajeComponent,AdministrarViajeComponent  ]
 })
 export class HomePageModule {}

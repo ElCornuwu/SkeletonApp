@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class DatosService {
+  getUser() {
+    throw new Error('Method not implemented.');
+  }
   getUserRol() {
     throw new Error('Method not implemented.');
   }
@@ -63,6 +66,11 @@ export class DatosService {
    
     return user.rol || null;  // Devuelve el rol del usuario
   }
+  getUserNombre(): any {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null; // Parsea el string JSON a un objeto
+  }
+  
 
   // Obtener viajes, con autenticación
   getViajes(): Observable<any> {
