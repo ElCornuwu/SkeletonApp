@@ -1,0 +1,58 @@
+
+h2 {
+    font-size: 24px;
+    color: #333333; /* Color de título más oscuro */
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  ion-content {
+    --background: #ffffff; 
+    padding: 20px;
+  }
+  /* Estilos para la imagen del perfil */
+  .profile-image-container {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle relieve */
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen al contenedor */
+  }
+  
+  /* Estilos para la información del usuario */
+  .profile-info {
+    margin-top: 20px;
+    text-align: left;
+    border-radius: 8px;
+  }
+  
+  ion-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  }
+  
+  ion-label {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Estilos para el botón de editar perfil */
+  .edit-profile-btn {
+    margin-top: 30px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el botón */
+    border-radius: 8px;
+  }
+  h6{
+    color: #ffffff;
+  }

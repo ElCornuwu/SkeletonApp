@@ -1,10 +1,6 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Ajustes de Zoom</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
+<ion-content>
+    <h2>Ajustes de Zoom</h2>
+<div class="ion-padding">
   <ion-item>
     <ion-label>Nivel de Zoom</ion-label>
     <ion-range
@@ -23,4 +19,5 @@
   <ion-item>
     <ion-label>Nivel Actual: {{ (currentZoom * 100) | number }}%</ion-label>
   </ion-item>
+</div>
 </ion-content>
