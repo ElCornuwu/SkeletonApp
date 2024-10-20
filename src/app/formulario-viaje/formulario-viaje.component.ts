@@ -9,7 +9,7 @@ import { ModalController } from '@ionic/angular';
 export class FormularioViajeComponent implements OnInit {
 
   @Input() viaje: any; // Recibe el viaje como parámetro si se está editando
-  nuevoViaje = { destino: '', hora: '', precio: 0 };
+  nuevoViaje = { destino: '', hora: '', precio: 0, patente: '', cupo: 0 };
 
   constructor(private modalCtrl: ModalController) { }
 

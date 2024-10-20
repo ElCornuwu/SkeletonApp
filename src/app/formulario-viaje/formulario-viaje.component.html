@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Agregar Viaje</ion-title>
+    <ion-title>{{ viaje ? 'Editar Viaje' : 'Agregar Viaje' }}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="cerrarModal()">Cerrar</ion-button>
     </ion-buttons>
@@ -10,20 +10,32 @@
 <ion-content>
   <form (ngSubmit)="agregarViaje()">
     <ion-item>
-      <ion-label>Destino</ion-label>
+      <ion-label>Destino:</ion-label>
       <ion-input [(ngModel)]="nuevoViaje.destino" name="destino" required></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Hora</ion-label>
+      <ion-label>Hora:</ion-label>
       <ion-input [(ngModel)]="nuevoViaje.hora" name="hora" required></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Precio</ion-label>
+      <ion-label>Precio:</ion-label>
       <ion-input type="number" [(ngModel)]="nuevoViaje.precio" name="precio" required></ion-input>
     </ion-item>
 
-    <ion-button type="submit" expand="block">Guardar</ion-button>
+    <!-- Agregar el campo para Patente -->
+    <ion-item>
+      <ion-label>Patente:</ion-label>
+      <ion-input [(ngModel)]="nuevoViaje.patente" name="patente" required></ion-input>
+    </ion-item>
+
+    <!-- Agregar el campo para Cupo -->
+    <ion-item>
+      <ion-label>Cupo:</ion-label>
+      <ion-input type="number" [(ngModel)]="nuevoViaje.cupo" name="cupo" required></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" expand="block">{{ viaje ? 'Actualizar' : 'Guardar' }}</ion-button>
   </form>
 </ion-content>
