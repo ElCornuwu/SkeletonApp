@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/datos.service';
-import { ModalController } from '@ionic/angular'; // Importa ModalController
-import { FormularioViajeComponent } from 'src/app/formulario-viaje/formulario-viaje.component';
+
 
 @Component({
   selector: 'app-ruta',
@@ -11,8 +10,10 @@ import { FormularioViajeComponent } from 'src/app/formulario-viaje/formulario-vi
 export class RutaComponent implements OnInit {
 
   viajes: any[] = [];
+  filtroViajes: any[] = [];
+  buscar: string = "";
 
-  constructor(private datosService: DatosService, private modalCtrl: ModalController) { } // Inyecta ModalController
+  constructor(private datosService: DatosService,) { }
 
   ngOnInit() {
     this.loadViajes();
@@ -22,57 +23,16 @@ export class RutaComponent implements OnInit {
     this.datosService.getViajes().subscribe((data) => {
       console.log(data);
       this.viajes = data;
+      this.filtroViajes = this.viajes;
     }, (error) => {
       console.error("Error al obtener los viajes: ", error);
     });
   }
 
-  eliminarViaje(id: number) {
-    this.datosService.deleteViaje(id).subscribe(() => {
-      console.log(`Viaje con ID ${id} eliminado`);
-      this.loadViajes();
-    }, (error) => {
-      console.error('Error al eliminar el viaje: ', error);
-    })
+  filtrarViajes() {
+    this.filtroViajes = this.viajes.filter(viaje =>
+      viaje.destino.toLowerCase().includes(this.buscar.toLowerCase())
+    )
   }
 
-  // Abre el modal
-  async mostrarFormularioNuevoViaje() {
-    const modal = await this.modalCtrl.create({
-      component: FormularioViajeComponent,
-    });
-
-    await modal.present();
-
-    // Obtener los datos cuando el modal se cierre
-    const { data } = await modal.onWillDismiss();
-    if (data && data.viaje) {
-      this.datosService.addViaje(data.viaje).subscribe(() => {
-        console.log('Nuevo viaje agregado');
-        this.loadViajes(); // Refresca la lista de viajes
-      }, (error) => {
-        console.error('Error al agregar el viaje: ', error);
-      });
-    }
-  }
-
-  async mostrarFormularioEditarViaje(viaje: any) {
-    const modal = await this.modalCtrl.create({
-      component: FormularioViajeComponent,
-      componentProps: { viaje } // Pasar el viaje seleccionado como propiedad
-    });
-
-    await modal.present();
-
-    // Obtener los datos cuando el modal se cierre
-    const { data } = await modal.onWillDismiss();
-    if (data && data.viaje) {
-      this.datosService.addViaje(data.viaje).subscribe(() => {
-        console.log('Viaje actualizado');
-        this.loadViajes(); // Refresca la lista de viajes
-      }, (error) => {
-        console.error('Error al actualizar el viaje: ', error);
-      });
-    }
-  }
 }

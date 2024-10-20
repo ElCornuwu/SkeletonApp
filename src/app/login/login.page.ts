@@ -72,6 +72,7 @@ export class LoginPage implements OnInit {
     this.validar(this.login).then((resultado) => {
       if (resultado === "campos completos") {
         this.datosService.login(this.login.usuario, this.login.password); // Llamar al servicio de login
+        
       }
     });
   }
