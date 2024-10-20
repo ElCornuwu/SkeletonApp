@@ -92,6 +92,11 @@ export class DatosService {
       );
   }
 
+
+  deleteViaje(id: number): Observable<any> {
+    return this.http.delete(this.apiURL+'/viaje/' + id, {responseType: 'json'});
+  }
+
   // Método para cerrar sesión
   logout() {
     localStorage.removeItem('token');  // Elimina el token
@@ -100,5 +105,15 @@ export class DatosService {
   }
 
 
+
   
+  addViaje(viaje: any): Observable<any> {
+    if (viaje.id) {
+      // Si el viaje tiene un ID, actualizar el viaje (PUT)
+      return this.http.put(this.apiURL + '/viaje/' + viaje.id, viaje, { responseType: 'json' });
+    } else {
+      // Si no tiene ID, agregar un nuevo viaje (POST)
+      return this.http.post(this.apiURL + '/viaje', viaje, { responseType: 'json' });
+    }
+  }
 }

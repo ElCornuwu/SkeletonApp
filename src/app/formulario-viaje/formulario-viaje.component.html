@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar Viaje</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="agregarViaje()">
+    <ion-item>
+      <ion-label>Destino</ion-label>
+      <ion-input [(ngModel)]="nuevoViaje.destino" name="destino" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Hora</ion-label>
+      <ion-input [(ngModel)]="nuevoViaje.hora" name="hora" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Precio</ion-label>
+      <ion-input type="number" [(ngModel)]="nuevoViaje.precio" name="precio" required></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" expand="block">Guardar</ion-button>
+  </form>
+</ion-content>
