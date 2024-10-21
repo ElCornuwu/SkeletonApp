@@ -41,18 +41,25 @@ export class DatosService {
         if (response[0].token) {
           localStorage.setItem('token', response[0].token);  // Guarda el token
           localStorage.setItem('user', JSON.stringify(response[0]));  // Guarda la información del usuario
-         this.router.navigateByUrl('/home/ruta');  // Redirige al usuario
-        
+        //this.router.navigateByUrl('/home/usuario',);  // Redirige al usuario
+        const rol = response[0].rol;
+        if (rol === 'Conductor') {
+          this.router.navigateByUrl('/home/administrar-viaje');  // Redirige al Conductor
+        } else if (rol === 'Pasajero') {
+          this.router.navigateByUrl('/home/ruta');  // Redirige al Pasajero
         } else {
-          console.error('Error de autenticación: No se recibió un token');
+          console.error('Rol no reconocido');
         }
-      }else(
-        console.error('usuario o contraseña incorrecta')
-      )
-      }, error => {
-        console.error('Error en el inicio de sesión:', error);
-      });
-  }
+      } else {
+        console.error('Error de autenticación: No se recibió un token');
+      }
+    } else {
+      console.error('Usuario o contraseña incorrecta');
+    }
+  }, error => {
+    console.error('Error en el inicio de sesión:', error);
+  });
+}
 
   // Verifica si el usuario está autenticado
   isAuthenticated(): boolean {
