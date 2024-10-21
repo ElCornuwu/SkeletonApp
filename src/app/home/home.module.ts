@@ -10,6 +10,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { FormularioViajeComponent } from '../formulario-viaje/formulario-viaje.component';
 import { AdministrarViajeComponent } from './administrar-viaje/administrar-viaje.component';
 import { AjustesComponent } from './ajustes/ajustes.component';
+import { ReservaComponent } from './reserva/reserva.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { AjustesComponent } from './ajustes/ajustes.component';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, RutaComponent,UsuarioComponent, FormularioViajeComponent,AdministrarViajeComponent, AjustesComponent]
+  declarations: [HomePage, RutaComponent,UsuarioComponent, FormularioViajeComponent,AdministrarViajeComponent, AjustesComponent, ReservaComponent]
 
 })
 export class HomePageModule {}

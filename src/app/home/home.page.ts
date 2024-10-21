@@ -12,24 +12,24 @@ export class HomePage implements OnInit{
   userRole: string | null = null;
 
   constructor(public datosService: DatosService) {
-    // Aquí puedes obtener el usuario desde el servicio
-    const user = this.datosService.getUserNombre(); // Asegúrate de tener este método en tu servicio
+
+    const user = this.datosService.getUserNombre(); 
     this.nombre = user ? user.nombre : 'Nombre no disponible';
   }
   ngOnInit(): void {
     this.getUserRole(); 
  }
- // Obtiene el rol del usuario al cargar el componente
+
  getUserRole() {
   this.userRole = this.datosService.getUserRole();
 }
 
-// Método que verifica si el rol del usuario es 'Conductor'
+
 isConductor(): boolean {
   return this.userRole === 'Conductor';
 }
 
-// Método que verifica si el rol del usuario es 'Pasajero'
+
 isPasajero(): boolean {
   return this.userRole === 'Pasajero';
 }

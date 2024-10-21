@@ -15,7 +15,7 @@ export class AjustesComponent{
 
   async getCurrentZoom() {
     const result = await TextZoom.get();
-    this.currentZoom = result.value; // Establece el valor de zoom actual
+    this.currentZoom = result.value;
   }
 
   async setZoom(zoomLevel: number) {

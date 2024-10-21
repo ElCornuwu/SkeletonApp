@@ -71,14 +71,14 @@ export class LoginPage implements OnInit {
   ingresar() {
     this.validar(this.login).then((resultado) => {
       if (resultado === "campos completos") {
-        this.datosService.login(this.login.usuario, this.login.password); // Llamar al servicio de login
+        this.datosService.login(this.login.usuario, this.login.password);
         
       }
     });
   }
 
   validarRol() {
-    const role = this.datosService.getUserRole(); // Obtener el rol desde el servicio
+    const role = this.datosService.getUserRole();
     if (role) {
       if (role === "Pasajero") {
         this.router.navigate(['/home/ruta']);

@@ -26,10 +26,54 @@
       "password": "1111",
       "rol": "Conductor",
       "token": "1111"
+    },
+    {
+      "id": "4",
+      "nombre": "matias",
+      "mail": "matia@gmail.com",
+      "telefono": "909090909",
+      "password": "1111",
+      "rol": "Pasajero",
+      "token": "1111"
     }
   ],
   "viaje": [
     {
+
+      "userID": "2",
+      "id": "1",
+      "hora": "12:00",
+      "destino": "Playa Ancha",
+      "precio": 10000,
+      "patente": "",
+      "cupo": 2
+    },
+    {
+      "id": "bd5f",
+      "destino": "Casablanca",
+      "hora": "12:00",
+      "precio": 1500,
+      "patente": "agduy123",
+      "cupo": 3,
+      "userID": "3"
+    },
+    {
+      "id": "cba7",
+      "destino": "dasdasd",
+      "hora": "12312",
+      "precio": 12312,
+      "patente": "asd1223",
+      "cupo": 4,
+      "userID": "2"
+    }
+  ],
+  "reservas": [
+    {
+      "id": "2474",
+      "viajeID": "1",
+      "usuarioID": "1",
+      "usuarioNombre": "ian"
+
       "userID": "3",
       "id": "5",
       "hora": "22:00",
@@ -37,17 +81,21 @@
       "precio": 15000,
       "patente": "",
       "cupo": 4
+
     },
     {
-      "userID": "3",
-      "id": "6",
-      "hora": "12:00",
-      "destino": "Curacavi",
-      "precio": 5000,
-      "patente": "",
-      "cupo": 4
+      "id": "158e",
+      "viajeID": "bd5f",
+      "usuarioID": "4",
+      "usuarioNombre": "asdas"
     },
     {
+
+      "id": "bbd5",
+      "viajeID": "1",
+      "usuarioID": "4",
+      "usuarioNombre": "Ian reyes"
+
       "id": "c46c",
       "destino": "sw",
       "hora": "w",
@@ -64,6 +112,7 @@
       "patente": "",
       "cupo": 0,
       "userID": "1"
+
     }
   ]
 }
