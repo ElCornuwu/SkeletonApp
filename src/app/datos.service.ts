@@ -29,38 +29,35 @@ export class DatosService {
   login(usuario: string, password: string) {
     return this.http.get<any>(`${this.apiURL}/user/?nombre=${usuario}`)
       .subscribe(response => {
-      if( response.length < 0){
-        return;
-      }
+        if (response.length > 0 && response[0].password === password) {
+  
+          if (response[0].token) {
+            localStorage.setItem('token', response[0].token);
+            localStorage.setItem('user', JSON.stringify(response[0])); 
+            
+            const rol = response[0].rol;
+            if (rol === 'Conductor') {
+              this.router.navigateByUrl('/home/administrar-viaje'); 
+            } else if (rol === 'Pasajero') {
+              this.router.navigateByUrl('/home/ruta');
+            } else {
+              console.error('Rol no reconocido');
+            }
+  
 
-        if(response[0].password === password ){
 
-      
-
-        if (response[0].token) {
-
-          localStorage.setItem('token', response[0].token);  // Guarda el token
-          localStorage.setItem('user', JSON.stringify(response[0]));  // Guarda la información del usuario
-        //this.router.navigateByUrl('/home/usuario',);  // Redirige al usuario
-        const rol = response[0].rol;
-        if (rol === 'Conductor') {
-          this.router.navigateByUrl('/home/administrar-viaje');  // Redirige al Conductor
-        } else if (rol === 'Pasajero') {
-          this.router.navigateByUrl('/home/ruta');  // Redirige al Pasajero
-
+  
+          } else {
+            console.error('Error de autenticación: No se recibió un token');
+          }
+  
         } else {
-          console.error('Rol no reconocido');
+          console.error('Usuario o contraseña incorrecta');
         }
-      } else {
-        console.error('Error de autenticación: No se recibió un token');
-      }
-    } else {
-      console.error('Usuario o contraseña incorrecta');
-    }
-  }, error => {
-    console.error('Error en el inicio de sesión:', error);
-  });
-}
+      }, error => {
+        console.error('Error en el inicio de sesión:', error);
+      });
+  }
 
 
   isAuthenticated(): boolean {
@@ -118,9 +115,10 @@ export class DatosService {
 
 
   logout() {
-    localStorage.removeItem('token');  
+    localStorage.removeItem('token'); 
     localStorage.removeItem('user');  
     this.router.navigate(['/login']);  
+    window.location.reload();          
   }
 
 

@@ -8,24 +8,24 @@ import { ModalController } from '@ionic/angular';
 })
 export class FormularioViajeComponent implements OnInit {
 
-  @Input() viaje: any; // Recibe el viaje como parámetro si se está editando
+  @Input() viaje: any; 
   nuevoViaje = { destino: '', hora: '', precio: 0, patente: '', cupo: 0 };
 
   constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {
-    // Si el viaje fue pasado, cargar sus datos en el formulario
+   
     if (this.viaje) {
       this.nuevoViaje = { ...this.viaje };
     }
   }
 
-  // Cerrar el modal sin pasar datos
+
   cerrarModal() {
     this.modalCtrl.dismiss();
   }
 
-  // Enviar los datos y cerrar el modal
+
   agregarViaje() {
     this.modalCtrl.dismiss({
       viaje: this.nuevoViaje

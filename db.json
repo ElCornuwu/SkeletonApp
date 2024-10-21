@@ -39,6 +39,16 @@
   ],
   "viaje": [
     {
+
+      "userID": "2",
+      "id": "1",
+      "hora": "12:00",
+      "destino": "Playa Ancha",
+      "precio": 10000,
+      "patente": "",
+      "cupo": 2
+    },
+    {
       "id": "bd5f",
       "destino": "Casablanca",
       "hora": "12:00",
@@ -68,7 +78,13 @@
       "id": "0b93",
       "viajeID": "bd5f",
       "usuarioID": "1",
-      "usuarioNombre": "ian"
+      "usuarioNombre": "Ian"
+    },
+    {
+      "id": "2e63",
+      "viajeID": "1",
+      "usuarioID": "4",
+      "usuarioNombre": "nacho"
     }
   ]
 }
