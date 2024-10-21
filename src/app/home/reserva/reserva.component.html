@@ -1,0 +1,19 @@
+<ion-content>
+  <div *ngIf="reservas.length === 0">
+    <p>No tienes reservas.</p>
+  </div>
+
+  <div *ngIf="reservas.length > 0">
+    <ul>
+      <li *ngFor="let reserva of reservas">
+        <strong>Nombre del pasajero:</strong> {{ reserva.usuarioNombre }} <br>
+        <strong>Destino:</strong> {{ viajes[reserva.viajeID]?.destino }} <br>
+        <strong>Hora:</strong> {{ viajes[reserva.viajeID]?.hora }} <br>
+        <strong>Precio:</strong> {{ viajes[reserva.viajeID]?.precio }} <br>
+        <ion-button (click)="eliminarReserva(reserva)">
+          Eliminar Reserva
+        </ion-button>
+      </li>
+    </ul>
+  </div>
+</ion-content>

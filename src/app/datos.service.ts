@@ -1,9 +1,9 @@
 import { Component, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { retry } from 'rxjs/operators';  // Para reintentar solicitudes fallidas
+import { retry } from 'rxjs/operators';
 import { Router } from '@angular/router';
-//import { DatosService } from './datos.service';//xxxxx
+
 
 
 @Injectable({
@@ -26,7 +26,6 @@ export class DatosService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  // Método de login
   login(usuario: string, password: string) {
     return this.http.get<any>(`${this.apiURL}/user/?nombre=${usuario}`)
       .subscribe(response => {
@@ -37,11 +36,11 @@ export class DatosService {
         if(response[0].password === password ){
 
       
-        // Si la respuesta tiene un token
+
         if (response[0].token) {
-          localStorage.setItem('token', response[0].token);  // Guarda el token
-          localStorage.setItem('user', JSON.stringify(response[0]));  // Guarda la información del usuario
-         this.router.navigateByUrl('/home/ruta');  // Redirige al usuario
+          localStorage.setItem('token', response[0].token);
+          localStorage.setItem('user', JSON.stringify(response[0]));
+         this.router.navigateByUrl('/home/ruta');
         
         } else {
           console.error('Error de autenticación: No se recibió un token');
@@ -54,49 +53,52 @@ export class DatosService {
       });
   }
 
-  // Verifica si el usuario está autenticado
+
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
-    return !!token;  // Devuelve true si hay un token, de lo contrario false
+    return !!token;
   }
 
-  // Obtiene el rol del usuario autenticado
+
   getUserRole(): string | null {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
    
-    return user.rol || null;  // Devuelve el rol del usuario
+    return user.rol || null;
   }
   getUserNombre(): any {
     const user = localStorage.getItem('user');
-    return user ? JSON.parse(user) : null; // Parsea el string JSON a un objeto
+    return user ? JSON.parse(user) : null;
   }
-  
+  getUserId(): any {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user).id : null;
+}
 
-  // Obtener viajes, con autenticación
+
   getViajes(): Observable<any> {
-    const token = localStorage.getItem('token');  // Obtener el token del localStorage
+    const token = localStorage.getItem('token'); 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`  // Incluir el token en los headers
+      'Authorization': `Bearer ${token}`
     });
 
     return this.http.get<any>(`${this.apiURL}/viaje`, { headers })
       .pipe(
-        retry(3)  // Intentar 3 veces en caso de error
+        retry(3)  
       );
   }
 
-  // Otro ejemplo de solicitud autenticada
+
   getDetallesViaje(viajeId: number): Observable<any> {
-    const token = localStorage.getItem('token');  // Obtener el token del localStorage
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`  // Incluir el token en los headers
+      'Authorization': `Bearer ${token}`
     });
 
     return this.http.get<any>(`${this.apiURL}/viaje/${viajeId}`, { headers })
       .pipe(
-        retry(3)  // Intentar 3 veces en caso de error
+        retry(3) 
       );
   }
 
@@ -105,11 +107,11 @@ export class DatosService {
     return this.http.delete(this.apiURL+'/viaje/' + id, {responseType: 'json'});
   }
 
-  // Método para cerrar sesión
+
   logout() {
-    localStorage.removeItem('token');  // Elimina el token
-    localStorage.removeItem('user');  // Elimina la información del usuario
-    this.router.navigate(['/login']);  // Redirige al usuario a la página de login
+    localStorage.removeItem('token');  
+    localStorage.removeItem('user');  
+    this.router.navigate(['/login']);  
   }
 
 
@@ -117,11 +119,27 @@ export class DatosService {
   
   addViaje(viaje: any): Observable<any> {
     if (viaje.id) {
-      // Si el viaje tiene un ID, actualizar el viaje (PUT)
+    
       return this.http.put(this.apiURL + '/viaje/' + viaje.id, viaje, { responseType: 'json' });
     } else {
-      // Si no tiene ID, agregar un nuevo viaje (POST)
+   
       return this.http.post(this.apiURL + '/viaje', viaje, { responseType: 'json' });
     }
+  }
+
+  updateViaje(viaje: any): Observable<any> {
+    return this.http.put(`${this.apiURL}/viaje/${viaje.id}`, viaje, { responseType: 'json' });
+  }
+
+  addReserva(reserva: any): Observable<any> {
+    return this.http.post(`${this.apiURL}/reservas`, reserva, { responseType: 'json' });
+  }
+
+  getReservas() {
+    return this.http.get<any[]>(`${this.apiURL}/reservas`);
+  }
+  
+  deleteReserva(id: string) {
+    return this.http.delete(`${this.apiURL}/reservas/${id}`);
   }
 }

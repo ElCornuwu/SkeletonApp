@@ -5,6 +5,7 @@ import { RutaComponent } from './ruta/ruta.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { AdministrarViajeComponent } from './administrar-viaje/administrar-viaje.component';
 import { AjustesComponent } from './ajustes/ajustes.component';
+import { ReservaComponent } from './reserva/reserva.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path:'ajustes',
         component: AjustesComponent
+      },
+      {
+        path:'reserva',
+        component: ReservaComponent
       }
     ]
   },

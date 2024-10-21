@@ -12,7 +12,6 @@
     <div>
 
       <h2>¿A dónde quiere ir hoy?</h2>
-      <div style="text-align: center;"><ion-button (click)="mostrarFormularioNuevoViaje()">Agregar Viaje</ion-button></div>
       <ul>
         <li *ngFor="let viaje of filtroViajes">
           <strong>Destino:</strong> {{ viaje.destino }} <br>
@@ -20,6 +19,12 @@
           <strong>Precio:</strong> ${{ viaje.precio }} <br>
           <strong>Patente:</strong> {{ viaje.patente }} <br>
           <strong>Cupo:</strong> {{ viaje.cupo }} <br>
+          
+          <ion-button 
+            *ngIf="viaje.cupo > 0" 
+            (click)="reservarCupo(viaje)">
+            Reservar
+          </ion-button>
           
         </li>
       </ul>
