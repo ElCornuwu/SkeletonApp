@@ -39,6 +39,7 @@
   ],
   "viaje": [
     {
+
       "userID": "2",
       "id": "1",
       "hora": "12:00",
@@ -53,17 +54,8 @@
       "hora": "12:00",
       "precio": 1500,
       "patente": "agduy123",
-      "cupo": 3,
+      "cupo": 2,
       "userID": "3"
-    },
-    {
-      "id": "cba7",
-      "destino": "dasdasd",
-      "hora": "12312",
-      "precio": 12312,
-      "patente": "asd1223",
-      "cupo": 4,
-      "userID": "2"
     },
     {
       "id": "8b57",
@@ -77,14 +69,14 @@
   ],
   "reservas": [
     {
-      "id": "3860",
+      "id": "69f7",
       "viajeID": "bd5f",
       "usuarioID": "1",
-      "usuarioNombre": "Matias Campos"
+      "usuarioNombre": "ian"
     },
     {
-      "id": "6b9e",
-      "viajeID": "1",
+      "id": "0b93",
+      "viajeID": "bd5f",
       "usuarioID": "1",
       "usuarioNombre": "Ian"
     },
