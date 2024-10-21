@@ -39,15 +39,6 @@
   ],
   "viaje": [
     {
-      "userID": "2",
-      "id": "1",
-      "hora": "12:00",
-      "destino": "Playa Ancha",
-      "precio": 10000,
-      "patente": "",
-      "cupo": 3
-    },
-    {
       "id": "bd5f",
       "destino": "Casablanca",
       "hora": "12:00",
@@ -55,15 +46,6 @@
       "patente": "agduy123",
       "cupo": 3,
       "userID": "3"
-    },
-    {
-      "id": "cba7",
-      "destino": "dasdasd",
-      "hora": "12312",
-      "precio": 12312,
-      "patente": "asd1223",
-      "cupo": 4,
-      "userID": "2"
     },
     {
       "id": "8b57",
@@ -77,16 +59,10 @@
   ],
   "reservas": [
     {
-      "id": "3860",
+      "id": "69f7",
       "viajeID": "bd5f",
       "usuarioID": "1",
-      "usuarioNombre": "Matias Campos"
-    },
-    {
-      "id": "6b9e",
-      "viajeID": "1",
-      "usuarioID": "1",
-      "usuarioNombre": "Ian"
+      "usuarioNombre": "ian"
     }
   ]
 }
