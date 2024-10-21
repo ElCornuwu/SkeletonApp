@@ -33,5 +33,4 @@ isConductor(): boolean {
 isPasajero(): boolean {
   return this.userRole === 'Pasajero';
 }
-
 }
