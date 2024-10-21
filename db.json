@@ -30,42 +30,6 @@
   ],
   "viaje": [
     {
-      "userID": "2",
-      "id": "1",
-      "hora": "12:00",
-      "destino": "Playa Ancha",
-      "precio": 10000,
-      "patente": "",
-      "cupo": 4
-    },
-    {
-      "userID": "2",
-      "id": "2",
-      "hora": "14:00",
-      "destino": "Valparaíso",
-      "precio": 15000,
-      "patente": "",
-      "cupo": 4
-    },
-    {
-      "userID": "2",
-      "id": "3",
-      "hora": "16:00",
-      "destino": "Viña del Mar",
-      "precio": 12500,
-      "patente": "",
-      "cupo": 4
-    },
-    {
-      "userID": "3",
-      "id": "4",
-      "hora": "18:00",
-      "destino": "Concón",
-      "precio": 9000,
-      "patente": "",
-      "cupo": 4
-    },
-    {
       "userID": "3",
       "id": "5",
       "hora": "22:00",
@@ -84,13 +48,22 @@
       "cupo": 4
     },
     {
-      "id": "e95f",
-      "destino": "casablanca",
-      "hora": "12:00",
-      "precio": 1000,
-      "patente": "12dasd",
-      "cupo": 4,
-      "userID": "2"
+      "id": "c46c",
+      "destino": "sw",
+      "hora": "w",
+      "precio": 0,
+      "patente": "",
+      "cupo": 0,
+      "userID": "1"
+    },
+    {
+      "id": "bd32",
+      "destino": "",
+      "hora": "",
+      "precio": 0,
+      "patente": "",
+      "cupo": 0,
+      "userID": "1"
     }
   ]
 }
