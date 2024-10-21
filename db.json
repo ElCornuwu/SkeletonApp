@@ -44,7 +44,7 @@
       "hora": "12:00",
       "precio": 1500,
       "patente": "agduy123",
-      "cupo": 3,
+      "cupo": 2,
       "userID": "3"
     },
     {
@@ -60,6 +60,12 @@
   "reservas": [
     {
       "id": "69f7",
+      "viajeID": "bd5f",
+      "usuarioID": "1",
+      "usuarioNombre": "ian"
+    },
+    {
+      "id": "0b93",
       "viajeID": "bd5f",
       "usuarioID": "1",
       "usuarioNombre": "ian"
