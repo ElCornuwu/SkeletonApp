@@ -69,11 +69,6 @@
   ],
   "reservas": [
     {
-      "id": "2474",
-      "viajeID": "1",
-      "usuarioID": "1",
-      "usuarioNombre": "ian"
-
       "userID": "3",
       "id": "5",
       "hora": "22:00",
@@ -81,37 +76,6 @@
       "precio": 15000,
       "patente": "",
       "cupo": 4
-
-    },
-    {
-      "id": "158e",
-      "viajeID": "bd5f",
-      "usuarioID": "4",
-      "usuarioNombre": "asdas"
-    },
-    {
-
-      "id": "bbd5",
-      "viajeID": "1",
-      "usuarioID": "4",
-      "usuarioNombre": "Ian reyes"
-
-      "id": "c46c",
-      "destino": "sw",
-      "hora": "w",
-      "precio": 0,
-      "patente": "",
-      "cupo": 0,
-      "userID": "1"
-    },
-    {
-      "id": "bd32",
-      "destino": "",
-      "hora": "",
-      "precio": 0,
-      "patente": "",
-      "cupo": 0,
-      "userID": "1"
 
     }
   ]
