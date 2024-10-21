@@ -45,7 +45,7 @@
       "destino": "Playa Ancha",
       "precio": 10000,
       "patente": "",
-      "cupo": 3
+      "cupo": 2
     },
     {
       "id": "bd5f",
@@ -87,6 +87,12 @@
       "viajeID": "1",
       "usuarioID": "1",
       "usuarioNombre": "Ian"
+    },
+    {
+      "id": "2e63",
+      "viajeID": "1",
+      "usuarioID": "4",
+      "usuarioNombre": "nacho"
     }
   ]
 }
