@@ -80,23 +80,6 @@
     }
   ],
   "reservas": [
-    {
-      "id": "3860",
-      "viajeID": "bd5f",
-      "usuarioID": "1",
-      "usuarioNombre": "Matias Campos"
-    },
-    {
-      "id": "6b9e",
-      "viajeID": "1",
-      "usuarioID": "1",
-      "usuarioNombre": "Ian"
-    },
-    {
-      "id": "2e63",
-      "viajeID": "1",
-      "usuarioID": "4",
-      "usuarioNombre": "nacho"
-    }
+   
   ]
 }

@@ -6,10 +6,10 @@
   <div *ngIf="reservas.length > 0">
     <ul>
       <li *ngFor="let reserva of reservas">
-        <strong>Nombre del pasajero:</strong> {{ reserva.usuarioNombre }} <br>
-        <strong>Destino:</strong> {{ viajes[reserva.viajeID]?.destino }} <br>
-        <strong>Hora:</strong> {{ viajes[reserva.viajeID]?.hora }} <br>
-        <strong>Precio:</strong> {{ viajes[reserva.viajeID]?.precio }} <br>
+        <strong>Nombre del pasajero: {{ reserva.usuarioNombre }}</strong> <br>
+        <strong>Destino: {{ viajes[reserva.viajeID]?.destino }}</strong>  <br>
+        <strong>Hora: {{ viajes[reserva.viajeID]?.hora }} </strong>  <br>
+        <strong>Precio: {{ viajes[reserva.viajeID]?.precio }}</strong>  <br>
         <ion-button (click)="eliminarReserva(reserva)">
           Eliminar Reserva
         </ion-button>

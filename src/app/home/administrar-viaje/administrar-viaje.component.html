@@ -5,7 +5,7 @@
     <ion-searchbar show-clear-button="focus" value="Buscar destinos creados"></ion-searchbar>
     
     <div>
-      <h2>¿A dónde quiere ir hoy?</h2>
+      <h2>Lista de viajes</h2>
       <div style="text-align: center;"><ion-button (click)="mostrarFormularioNuevoViaje()">Agregar Viaje</ion-button></div>
       <ul>
         <li *ngFor="let viaje of viajes">
@@ -15,9 +15,10 @@
           <strong>Precio:</strong> ${{ viaje.precio }} <br>
           <strong>Patente:</strong> {{ viaje.patente }} <br>
           <strong>Cupo:</strong> {{ viaje.cupo }} <br>
-          
+          <div class="botones">
           <ion-button (click)="mostrarFormularioEditarViaje(viaje)">Editar</ion-button>
           <ion-button (click)="eliminarViaje(viaje.id)">Eliminar</ion-button>
+          </div>
         </li>
       </ul>
     </div>

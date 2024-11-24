@@ -27,9 +27,13 @@
       <ion-item *ngIf="isConductor()">
         <ion-button  [routerLink]="['/home/administrar-reserva']" fill="clear" > <ion-icon name="reader-outline"></ion-icon>Administrar reservas</ion-button>
       </ion-item>
-      <ion-item>
-        <ion-button  [routerLink]="['/home/ajustes']" fill="clear" > <ion-icon name="settings-outline"></ion-icon>Ajustes</ion-button>
+        <ion-button  [routerLink]="['/home/reserva']" fill="clear" > <ion-icon name="reader"></ion-icon>Reserva</ion-button>
       </ion-item>
+
+      <ion-item>
+        <ion-button  [routerLink]="['/home/ajustes']" fill="clear" > <ion-icon name="settings"></ion-icon>Ajustes</ion-button>
+      </ion-item>
+
       <ion-item>
         <ion-button (click)="datosService.logout()"  fill="clear" >  <ion-icon name="exit"></ion-icon> Cerrar sesion</ion-button>
       </ion-item>
