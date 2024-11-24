@@ -69,13 +69,53 @@ export class LoginPage implements OnInit {
   }
 
   ingresar() {
-    this.validar(this.login).then((resultado) => {
-      if (resultado === "campos completos") {
-        this.datosService.login(this.login.usuario, this.login.password);
-        
-      }
+    if (this.login.usuario.trim() === "") {
+      this.alertaErrorUser();
+      return;
+    }
+  
+    if (this.login.password.trim() === "") {
+      this.alertaErrorPass();
+      return;
+    }
+  
+    this.datosService.login(this.login.usuario, this.login.password).subscribe({
+      next: (response) => {
+        if (response.length > 0 && response[0].password === this.login.password) {
+          const user = response[0];
+  
+          if (user.token) {
+
+            localStorage.setItem('token', user.token);
+            localStorage.setItem('user', JSON.stringify(user));
+  
+            this.alertaInicio('Éxito', `${this.login.usuario} ha iniciado sesión correctamente`);
+  
+
+            const rol = user.rol;
+            if (rol === 'Conductor') {
+              this.router.navigate(['/home/administrar-viaje']);
+            } else if (rol === 'Pasajero') {
+              this.router.navigate(['/home/ruta']);
+            } else {
+              console.error('Rol no reconocido');
+            }
+          } else {
+            this.alertaErrorLogin();
+            console.error('Error de autenticación: No se recibió un token');
+          }
+        } else {
+          this.alertaErrorLogin();
+          console.error('Usuario o contraseña incorrectos');
+        }
+      },
+      error: (err) => {
+        this.alertaErrorLogin();
+        console.error('Error en el inicio de sesión:', err);
+      },
     });
   }
+  
 
   validarRol() {
     const role = this.datosService.getUserRole();
@@ -99,25 +139,6 @@ export class LoginPage implements OnInit {
     event.target.value = filteredInput;
   }
 
-  async validar(model: any) {
-    if (model.usuario === "") {
-      await this.alertaErrorUser();
-      return "usuario vacio";
-    } else if (model.usuario.length < 3) {
-      await this.alertaErrorUser();
-      return "usuario debe ser mayor a 3 caracteres";
-    } else if (model.password == "") {
-      await this.alertaErrorPass();
-      return "password vacío";
-    } else if (model.password.length != 4) {
-      await this.alertaErrorPass();
-      return "contraseña debe ser de 4 caracteres";
-    }
-    
-    
-    return "campos completos"; 
-  }
-
   async alertaInicio(titulo: string, mensaje: string) {
     const alert = await this.alertController.create({
       header: titulo,
@@ -132,7 +153,7 @@ export class LoginPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'ERROR!',
       subHeader: 'Error al iniciar sesión',
-      message: 'El usuario debe contener un minimo de 3 caracteres',
+      message: 'Se debe ingresar un usuario',
       buttons: ['Ok'],
     });
 
@@ -143,11 +164,21 @@ export class LoginPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'ERROR!',
       subHeader: 'Error al iniciar sesión',
-      message: 'La contraseña debe tener 4 caracteres',
+      message: 'Se debe ingresar la contraseña',
       buttons: ['Ok'],
     });
 
     await alert.present();
   }
 
+  async alertaErrorLogin() {
+    const alert = await this.alertController.create({
+      header: 'ERROR!',
+      subHeader: 'Error al iniciar sesión',
+      message: 'Usuario o contraseña incorrectos',
+      buttons: ['Ok'],
+    });
+
+    await alert.present();
+  }
 }

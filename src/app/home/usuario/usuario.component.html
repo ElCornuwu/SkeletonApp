@@ -1,35 +1,24 @@
 <ion-content>
- 
-          <h2>Perfil de Usuario</h2>
-       
-      
-      <ion-content class="ion-padding perfil-content">
-        <!-- Imagen del perfil -->
-        <div class="profile-image-container">
-          <img src="assets/icon/foto.jpg" alt="Foto de perfil" class="profile-image">
-        </div>
-      
-        <!-- Información del usuario -->
-        <ion-list lines="none" class="profile-info">
-          <ion-item>
-            <ion-label><strong>Nombre:</strong></ion-label>
-            <ion-label></ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label><strong>Email:</strong></ion-label>
-            <ion-label></ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label><strong>Teléfono:</strong></ion-label>
-            <ion-label> </ion-label>
-          </ion-item>
-        </ion-list>
-      
-        <!-- Botón para editar perfil -->
-        <ion-button expand="block" color="primary" class="edit-profile-btn">
-          <h6>Editar Perfil</h6>
-        </ion-button>
-      </ion-content>
-      
+  <h2>Perfil de Usuario</h2>
+
+  <ion-content class="ion-padding perfil-content">
+    <ion-list lines="none" class="profile-info">
+      <ion-item>
+        <ion-label><strong>Nombre:</strong></ion-label>
+        <ion-label>{{ usuario.nombre || 'No disponible' }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label><strong>Email:</strong></ion-label>
+        <ion-label>{{ usuario.mail || 'No disponible' }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label><strong>Teléfono:</strong></ion-label>
+        <ion-label>{{ usuario.telefono || 'No disponible' }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label><strong>Tipo usuario:</strong></ion-label>
+        <ion-label>{{ usuario.rol || 'No disponible' }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 </ion-content>
-      
