@@ -55,6 +55,10 @@ export class DatosService {
   }
 
 
+  registrarUsuario(usuario: any) {
+    return this.http.post('http://localhost:3000/user', usuario);
+  }
+  
   getViajes(): Observable<any> {
     const token = localStorage.getItem('token'); 
     const headers = new HttpHeaders({

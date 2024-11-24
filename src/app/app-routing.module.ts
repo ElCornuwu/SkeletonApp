@@ -28,6 +28,7 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
   },
+
 ];
 
 @NgModule({

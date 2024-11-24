@@ -1,4 +1,5 @@
 <ion-content>
+  <router-outlet>
   <div id="header"></div>
 
   <div class="fomulario">
@@ -27,11 +28,12 @@
 
     <ion-card class="registro">
       <ion-card-content>
-        <ion-button expand="block" shape="round">Registrate</ion-button>
+        <ion-button expand="block" shape="round" [routerLink]="['/login/registro']">Registrate</ion-button>
         <div class="ion-text-center" style="margin-top: 10px;">
           <a href="/recuperar">Recuperar contraseña</a>
         </div>
       </ion-card-content>
     </ion-card>
   </div>
+  </router-outlet>
 </ion-content>

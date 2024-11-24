@@ -35,6 +35,24 @@
       "password": "1111",
       "rol": "Pasajero",
       "token": "1111"
+    },
+    {
+      "id": "536b",
+      "nombre": "nacho",
+      "mail": "nacho@gmail.com",
+      "telefono": "999999999",
+      "password": "1111",
+      "rol": "Pasajero",
+      "token": "1111"
+    },
+    {
+      "id": "9de8",
+      "nombre": "a",
+      "mail": "a@gmail.com",
+      "telefono": "123456789",
+      "password": "1111",
+      "rol": "Conductor",
+      "token": "1111"
     }
   ],
   "viaje": [
@@ -65,7 +83,7 @@
       "hora": "12312",
       "precio": 12312,
       "patente": "asd1223",
-      "cupo": 4,
+      "cupo": 3,
       "userID": "2"
     },
     {
@@ -77,6 +95,16 @@
       "patente": "asdq21",
       "cupo": 3,
       "userID": "2"
+    },
+    {
+      "id": "d588",
+      "destino": "s",
+      "fecha": "2024-12-12",
+      "hora": "12:00",
+      "precio": 1000,
+      "patente": "sfsgs",
+      "cupo": 4,
+      "userID": "9de8"
     }
   ],
   "reservas": [
@@ -85,6 +113,12 @@
       "viajeID": "1",
       "usuarioID": "1",
       "usuarioNombre": "ola"
+    },
+    {
+      "id": "030e",
+      "viajeID": "cba7",
+      "usuarioID": "536b",
+      "usuarioNombre": "a"
     }
   ]
 }
