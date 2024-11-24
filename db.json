@@ -38,7 +38,46 @@
     }
   ],
   "viaje": [
-  
+    {
+      "userID": "2",
+      "id": "1",
+      "fecha": "2024-11-12",
+      "hora": "12:00",
+      "destino": "Playa Ancha",
+      "precio": 10000,
+      "patente": "",
+      "cupo": 2
+    },
+    {
+      "id": "bd5f",
+      "destino": "Casablanca",
+      "fecha": "2024-11-26",
+      "hora": "12:00",
+      "precio": 1500,
+      "patente": "agduy123",
+      "cupo": 3,
+      "userID": "3"
+    },
+    {
+      "id": "cba7",
+      "destino": "dasdasd",
+      "fecha": "2024-12-01",
+      "hora": "12312",
+      "precio": 12312,
+      "patente": "asd1223",
+      "cupo": 4,
+      "userID": "2"
+    },
+    {
+      "id": "8b57",
+      "destino": "asda",
+      "fecha": "2024-12-03",
+      "hora": "123",
+      "precio": 123,
+      "patente": "asdq21",
+      "cupo": 3,
+      "userID": "2"
+    }
   ],
   "reservas": [
    

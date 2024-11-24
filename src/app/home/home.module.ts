@@ -11,6 +11,7 @@ import { FormularioViajeComponent } from '../formulario-viaje/formulario-viaje.c
 import { AdministrarViajeComponent } from './administrar-viaje/administrar-viaje.component';
 import { AjustesComponent } from './ajustes/ajustes.component';
 import { ReservaComponent } from './reserva/reserva.component';
+import { AdministrarReservaComponent } from './administrar-reserva/administrar-reserva.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { ReservaComponent } from './reserva/reserva.component';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, RutaComponent,UsuarioComponent, FormularioViajeComponent,AdministrarViajeComponent, AjustesComponent, ReservaComponent]
+  declarations: [HomePage, RutaComponent,UsuarioComponent, FormularioViajeComponent,AdministrarViajeComponent, AjustesComponent, ReservaComponent, AdministrarReservaComponent]
 
 })
 export class HomePageModule {}

@@ -21,6 +21,12 @@
       </ion-item>
 
       <ion-item *ngIf="isPasajero()">
+        <ion-button  [routerLink]="['/home/reserva']" fill="clear" > <ion-icon name="reader-outline"></ion-icon>Reserva</ion-button>
+      </ion-item>
+
+      <ion-item *ngIf="isConductor()">
+        <ion-button  [routerLink]="['/home/administrar-reserva']" fill="clear" > <ion-icon name="reader-outline"></ion-icon>Administrar reservas</ion-button>
+      </ion-item>
         <ion-button  [routerLink]="['/home/reserva']" fill="clear" > <ion-icon name="reader"></ion-icon>Reserva</ion-button>
       </ion-item>
 

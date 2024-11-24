@@ -6,6 +6,8 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { AdministrarViajeComponent } from './administrar-viaje/administrar-viaje.component';
 import { AjustesComponent } from './ajustes/ajustes.component';
 import { ReservaComponent } from './reserva/reserva.component';
+import { AdministrarReservaComponent } from './administrar-reserva/administrar-reserva.component';
+
 
 const routes: Routes = [
   {
@@ -32,6 +34,10 @@ const routes: Routes = [
       {
         path:'reserva',
         component: ReservaComponent
+      },
+      {
+        path:'administrar-reserva',
+        component: AdministrarReservaComponent
       }
     ]
   },

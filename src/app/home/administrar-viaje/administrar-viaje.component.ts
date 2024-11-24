@@ -13,7 +13,7 @@ export class AdministrarViajeComponent  implements OnInit {
   viajes: any[] = [];
   userID: number | null = null;
 
-  constructor(private datosService: DatosService, private modalCtrl: ModalController) { } // Inyecta ModalController
+  constructor(private datosService: DatosService, private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.loadViajes();

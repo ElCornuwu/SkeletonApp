@@ -26,38 +26,12 @@ export class DatosService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  login(usuario: string, password: string) {
-    return this.http.get<any>(`${this.apiURL}/user/?nombre=${usuario}`)
-      .subscribe(response => {
-        if (response.length > 0 && response[0].password === password) {
-  
-          if (response[0].token) {
-            localStorage.setItem('token', response[0].token);
-            localStorage.setItem('user', JSON.stringify(response[0])); 
-            
-            const rol = response[0].rol;
-            if (rol === 'Conductor') {
-              this.router.navigateByUrl('/home/administrar-viaje'); 
-            } else if (rol === 'Pasajero') {
-              this.router.navigateByUrl('/home/ruta');
-            } else {
-              console.error('Rol no reconocido');
-            }
-  
-
-
-  
-          } else {
-            console.error('Error de autenticación: No se recibió un token');
-          }
-  
-        } else {
-          console.error('Usuario o contraseña incorrecta');
-        }
-      }, error => {
-        console.error('Error en el inicio de sesión:', error);
-      });
+  login(usuario: string, password: string): Observable<any> {
+    return this.http.get<any>(`${this.apiURL}/user/?nombre=${usuario}`).pipe(
+      retry(3)
+    );
   }
+  
 
 
   isAuthenticated(): boolean {
@@ -78,7 +52,7 @@ export class DatosService {
   getUserId(): any {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user).id : null;
-}
+  }
 
 
   getViajes(): Observable<any> {
