@@ -46,7 +46,7 @@
       "destino": "Playa Ancha",
       "precio": 10000,
       "patente": "",
-      "cupo": 2
+      "cupo": 1
     },
     {
       "id": "bd5f",
@@ -80,6 +80,11 @@
     }
   ],
   "reservas": [
-   
+    {
+      "id": "291a",
+      "viajeID": "1",
+      "usuarioID": "1",
+      "usuarioNombre": "ola"
+    }
   ]
 }
