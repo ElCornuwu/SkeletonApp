@@ -9,7 +9,7 @@
         <ion-item-divider>
           <ion-label>
             <h2>Destino: {{ viaje.destino }}</h2>
-            <p>Fecha: {{ viaje.fecha }} <p>
+            <p>Fecha: {{ viaje.fecha }}</p>
             <p>Hora: {{ viaje.hora }}</p>
             <p>Precio: {{ viaje.precio }}</p>
             <p>Cupos disponibles: {{ viaje.cupo }}</p>
@@ -21,6 +21,14 @@
             <strong>Pasajero:</strong> {{ reserva.usuarioNombre }} <br />
             <strong>ID Reserva:</strong> {{ reserva.id }}
           </ion-label>
+          <ion-button
+            slot="end"
+            color="danger"
+            fill="clear"
+            (click)="eliminarReserva(reserva.id, viaje.id)"
+          >
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
         </ion-item>
 
         <ion-item *ngIf="reservasPorViaje[viaje.id]?.length === 0">
