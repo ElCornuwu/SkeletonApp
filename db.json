@@ -53,6 +53,15 @@
       "password": "1111",
       "rol": "Conductor",
       "token": "1111"
+    },
+    {
+      "id": "1e91",
+      "nombre": "javier",
+      "mail": "javier@gmail.com",
+      "telefono": "123456789",
+      "password": "1111",
+      "rol": "Pasajero",
+      "token": "1111"
     }
   ],
   "viaje": [
@@ -64,7 +73,7 @@
       "destino": "Playa Ancha",
       "precio": 10000,
       "patente": "",
-      "cupo": 4
+      "cupo": 3
     },
     {
       "id": "bd5f",
@@ -93,7 +102,7 @@
       "hora": "123",
       "precio": 123,
       "patente": "asdq21",
-      "cupo": 3,
+      "cupo": 4,
       "userID": "2"
     },
     {
@@ -105,6 +114,16 @@
       "patente": "sfsgs",
       "cupo": 3,
       "userID": "9de8"
+    },
+    {
+      "id": "0246",
+      "destino": "ola",
+      "fecha": "2024-12-12",
+      "hora": "12:00",
+      "precio": 1000,
+      "patente": "afasdfads",
+      "cupo": 4,
+      "userID": "2"
     }
   ],
   "reservas": [
@@ -115,14 +134,14 @@
       "usuarioNombre": "ian"
     },
     {
-      "id": "c23e",
-      "viajeID": "8b57",
+      "id": "68f9",
+      "viajeID": "d588",
       "usuarioID": "1",
       "usuarioNombre": "ian"
     },
     {
-      "id": "68f9",
-      "viajeID": "d588",
+      "id": "eb5f",
+      "viajeID": "1",
       "usuarioID": "1",
       "usuarioNombre": "ian"
     }

@@ -8,6 +8,7 @@
       <li *ngFor="let reserva of reservas">
         <strong>Nombre del pasajero: {{ reserva.usuarioNombre }}</strong> <br>
         <strong>Destino: {{ viajes[reserva.viajeID]?.destino }}</strong>  <br>
+        <strong>fecha: {{ viajes[reserva.viajeID]?.fecha}}</strong>  <br>
         <strong>Hora: {{ viajes[reserva.viajeID]?.hora }} </strong>  <br>
         <strong>Precio: {{ viajes[reserva.viajeID]?.precio }}</strong>  <br>
         <ion-button (click)="eliminarReserva(reserva)">

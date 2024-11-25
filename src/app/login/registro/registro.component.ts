@@ -61,10 +61,11 @@ export class RegistroComponent  implements OnInit {
       return false;
     }
 
-    if (password.length < 4) {
-      this.mostrarAlerta('Error', 'La contraseña debe tener al menos 4 caracteres.');
+    if (password.length != 4) {
+      this.mostrarAlerta('Error', 'La contraseña debe ser de 4 caracteres.');
       return false;
     }
+
 
     return true;
   }
