@@ -73,18 +73,18 @@ export class DatosService {
   }
 
 
-  getDetallesViaje(viajeId: number): Observable<any> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
+  getDetallesViaje(viajeId: string): Observable<any> {
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+  });
 
-    return this.http.get<any>(`${this.apiURL}/viaje/${viajeId}`, { headers })
-      .pipe(
-        retry(3) 
-      );
-  }
+  return this.http.get<any>(`${this.apiURL}/viaje/${viajeId}`, { headers })
+    .pipe(
+      retry(3)
+    );
+}
 
 
   deleteViaje(id: number): Observable<any> {

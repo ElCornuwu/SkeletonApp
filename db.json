@@ -64,7 +64,7 @@
       "destino": "Playa Ancha",
       "precio": 10000,
       "patente": "",
-      "cupo": 1
+      "cupo": 4
     },
     {
       "id": "bd5f",
@@ -83,7 +83,7 @@
       "hora": "12312",
       "precio": 12312,
       "patente": "asd1223",
-      "cupo": 3,
+      "cupo": 4,
       "userID": "2"
     },
     {
@@ -103,22 +103,28 @@
       "hora": "12:00",
       "precio": 1000,
       "patente": "sfsgs",
-      "cupo": 4,
+      "cupo": 3,
       "userID": "9de8"
     }
   ],
   "reservas": [
     {
-      "id": "291a",
-      "viajeID": "1",
+      "id": "1431",
+      "viajeID": "bd5f",
       "usuarioID": "1",
-      "usuarioNombre": "ola"
+      "usuarioNombre": "ian"
     },
     {
-      "id": "030e",
-      "viajeID": "cba7",
-      "usuarioID": "536b",
-      "usuarioNombre": "a"
+      "id": "c23e",
+      "viajeID": "8b57",
+      "usuarioID": "1",
+      "usuarioNombre": "ian"
+    },
+    {
+      "id": "68f9",
+      "viajeID": "d588",
+      "usuarioID": "1",
+      "usuarioNombre": "ian"
     }
   ]
 }
