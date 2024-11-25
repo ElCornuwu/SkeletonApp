@@ -1,0 +1,56 @@
+/* registro.page.scss */
+
+ion-content {
+    --background: #f2f2f2; /* Fondo claro */
+  }
+  
+  .registro-wrapper {
+    display: flex;
+  }
+  ion-card {
+    width: 100%;
+    max-width: 400px; /* Limita el ancho en pantallas grandes */
+    border-radius: 12px; /* Bordes redondeados */
+    
+  }
+  
+  ion-card-header {
+    text-align: center;
+    background-color: #105b63; /* Fondo azul */
+    color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 16px;
+  }
+  
+  ion-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+ 
+  
+  ion-item {
+    --background: transparent; /* Fondo transparente para ítems */
+    margin-bottom: 16px; /* Espaciado entre campos */
+  }
+  
+
+  
+  ion-button {
+    margin-top: 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 20px;
+  }
+  
+  ion-button:first-of-type {
+ 
+    color: white;
+  }
+  
+
+  
+
+
+  

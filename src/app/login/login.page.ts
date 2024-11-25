@@ -25,35 +25,39 @@ export class LoginPage implements OnInit {
     password:""
   }
 
+  public router: Router;
+
   constructor(
     private navCtrl: NavController,
     private alertController: AlertController,
     private animationCtrl: AnimationController,
-    private router: Router,
-    private datosService: DatosService
-  ) { }
+    private datosService: DatosService,
+    router: Router
+  ) {
+    this.router = router;
+  }
 
   ngAfterViewInit() {
-    
+
     this.movementAnimation = this.animationCtrl
       .create()
       .addElement(this.logoWrapper.nativeElement)
       .duration(500)
       .iterations(1)
       .keyframes([
-        { offset: 0, transform: 'translateX(0)' },  
-        { offset: 1, transform: 'translateX(300px)' } 
+        { offset: 0, transform: 'translateX(0)' },
+        { offset: 1, transform: 'translateX(300px)' }
       ]);
 
-    
+
     this.rotationAnimation = this.animationCtrl
       .create()
       .addElement(this.logoImage.nativeElement)
       .duration(500)
       .iterations(1)
       .keyframes([
-        { offset: 0, transform: 'rotate(0deg)' },  
-        { offset: 1, transform: 'rotate(360deg)' } 
+        { offset: 0, transform: 'rotate(0deg)' },
+        { offset: 1, transform: 'rotate(360deg)' }
       ])
       .onFinish(() => {
         this.alertaInicio('Éxito', this.login.usuario + ' ha iniciado sesión correctamente');
@@ -73,24 +77,24 @@ export class LoginPage implements OnInit {
       this.alertaErrorUser();
       return;
     }
-  
+
     if (this.login.password.trim() === "") {
       this.alertaErrorPass();
       return;
     }
-  
+
     this.datosService.login(this.login.usuario, this.login.password).subscribe({
       next: (response) => {
         if (response.length > 0 && response[0].password === this.login.password) {
           const user = response[0];
-  
+
           if (user.token) {
 
             localStorage.setItem('token', user.token);
             localStorage.setItem('user', JSON.stringify(user));
-  
+
             this.alertaInicio('Éxito', `${this.login.usuario} ha iniciado sesión correctamente`);
-  
+
 
             const rol = user.rol;
             if (rol === 'Conductor') {
@@ -115,7 +119,7 @@ export class LoginPage implements OnInit {
       },
     });
   }
-  
+
 
   validarRol() {
     const role = this.datosService.getUserRole();
