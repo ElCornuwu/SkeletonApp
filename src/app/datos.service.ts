@@ -127,4 +127,12 @@ export class DatosService {
   deleteReserva(id: string) {
     return this.http.delete(`${this.apiURL}/reservas/${id}`);
   }
+
+  verificarUsuarioPorNombre(nombre: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiURL}/user?nombre=${nombre}`, this.httpOptions);
+  }
+  
+  verificarUsuarioPorCorreo(mail: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiURL}/user?mail=${mail}`, this.httpOptions);
+  }
 }

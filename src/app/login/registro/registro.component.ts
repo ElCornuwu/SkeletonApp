@@ -28,20 +28,50 @@ export class RegistroComponent  implements OnInit {
 
   async registrar() {
     if (this.validarFormulario()) {
-      this.nuevoUsuario.token = "1111"; // Agrega el token directamente
+      // Verifica si ya existe un usuario con el mismo nombre
+      this.datosService.verificarUsuarioPorNombre(this.nuevoUsuario.nombre).subscribe({
+        next: (usuariosConMismoNombre) => {
+          if (usuariosConMismoNombre.length > 0) {
+            // Usuario con el mismo nombre ya existe
+            this.mostrarAlerta('Error', 'Ya existe un usuario con ese nombre.');
+          } else {
+            // Verifica si ya existe un usuario con el mismo correo
+            this.datosService.verificarUsuarioPorCorreo(this.nuevoUsuario.mail).subscribe({
+              next: (usuariosConMismoCorreo) => {
+                if (usuariosConMismoCorreo.length > 0) {
+                  // Usuario con el mismo correo ya existe
+                  this.mostrarAlerta('Error', 'Ya existe un usuario con ese correo electrónico.');
+                } else {
+                  // Continúa con el registro
+                  this.nuevoUsuario.token = "1111"; // Agrega el token directamente
   
-      this.datosService.registrarUsuario(this.nuevoUsuario).subscribe({
-        next: () => {
-          this.mostrarAlerta('Registro exitoso', 'El usuario ha sido creado correctamente.');
-          this.router.navigate(['/login']); // Navegar a la página de login después de registrar
+                  this.datosService.registrarUsuario(this.nuevoUsuario).subscribe({
+                    next: () => {
+                      this.mostrarAlerta('Registro exitoso', 'El usuario ha sido creado correctamente.');
+                      this.router.navigate(['/login']); // Navegar a la página de login después de registrar
+                    },
+                    error: (err) => {
+                      console.error('Error al registrar el usuario:', err);
+                      this.mostrarAlerta('Error', 'Hubo un problema al crear el usuario.');
+                    },
+                  });
+                }
+              },
+              error: (err) => {
+                console.error('Error al verificar el correo del usuario:', err);
+                this.mostrarAlerta('Error', 'Hubo un problema al verificar el correo del usuario.');
+              },
+            });
+          }
         },
         error: (err) => {
-          console.error('Error al registrar el usuario:', err);
-          this.mostrarAlerta('Error', 'Hubo un problema al crear el usuario.');
+          console.error('Error al verificar el nombre del usuario:', err);
+          this.mostrarAlerta('Error', 'Hubo un problema al verificar el nombre del usuario.');
         },
       });
     }
   }
+  
 
   validarFormulario(): boolean {
     const { nombre, mail, telefono, password, rol } = this.nuevoUsuario;

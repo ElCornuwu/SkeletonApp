@@ -64,9 +64,45 @@ export class LoginPage implements OnInit {
       });
   }
 
-  play() {
-    this.movementAnimation.play();
-    this.rotationAnimation.play();
+  play(rol: string) {
+    // Movimiento hacia la derecha
+    const movementAnimation = this.animationCtrl
+      .create()
+      .addElement(this.logoWrapper.nativeElement)
+      .duration(1000) // Ajusta la duración según prefieras
+      .iterations(1)
+      .keyframes([
+        { offset: 0, transform: 'translateX(0)' },
+        { offset: 1, transform: 'translateX(300px)' },
+      ]);
+  
+    // Rotación
+    const rotationAnimation = this.animationCtrl
+      .create()
+      .addElement(this.logoImage.nativeElement)
+      .duration(1000) // Ajusta la duración según prefieras
+      .iterations(1)
+      .keyframes([
+        { offset: 0, transform: 'rotate(0deg)' },
+        { offset: 1, transform: 'rotate(360deg)' },
+      ]);
+  
+    // Combinar ambas animaciones y esperar a que terminen
+    const combinedAnimation = this.animationCtrl
+      .create()
+      .addAnimation([movementAnimation, rotationAnimation])
+      .onFinish(() => {
+        // Navega a la página correspondiente según el rol
+        if (rol === 'Conductor') {
+          this.router.navigate(['/home/administrar-viaje']);
+        } else if (rol === 'Pasajero') {
+          this.router.navigate(['/home/ruta']);
+        } else {
+          console.error('Rol no reconocido');
+        }
+      });
+  
+    combinedAnimation.play();
   }
 
   ngOnInit() {
@@ -77,33 +113,23 @@ export class LoginPage implements OnInit {
       this.alertaErrorUser();
       return;
     }
-
+  
     if (this.login.password.trim() === "") {
       this.alertaErrorPass();
       return;
     }
-
+  
     this.datosService.login(this.login.usuario, this.login.password).subscribe({
       next: (response) => {
         if (response.length > 0 && response[0].password === this.login.password) {
           const user = response[0];
-
+  
           if (user.token) {
-
             localStorage.setItem('token', user.token);
             localStorage.setItem('user', JSON.stringify(user));
-
-            this.alertaInicio('Éxito', `${this.login.usuario} ha iniciado sesión correctamente`);
-
-
-            const rol = user.rol;
-            if (rol === 'Conductor') {
-              this.router.navigate(['/home/administrar-viaje']);
-            } else if (rol === 'Pasajero') {
-              this.router.navigate(['/home/ruta']);
-            } else {
-              console.error('Rol no reconocido');
-            }
+  
+            // Reproduce las animaciones y navega después de que terminen
+            this.play(user.rol);
           } else {
             this.alertaErrorLogin();
             console.error('Error de autenticación: No se recibió un token');
