@@ -22,7 +22,7 @@ export class DatosService {
       'Access-Control-Allow-Origin': '*'
     })
   };
-  apiURL = 'http://localhost:3000';  
+  apiURL = 'https://a9049a40-ec92-44dd-8f77-8c6d7f3b39fa-00-19u5ph9bq77lw.janeway.replit.dev';  
 
   constructor(private http: HttpClient, private router: Router) {}
 
